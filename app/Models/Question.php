@@ -10,9 +10,12 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = [
-        'enonce',
-        'type',
-
+        'question',
+        'quizz_id',
+        'true_or_false',
+        'mutiple_answers',
+        'one_answer',
+        'statut'
     ];
 
 
