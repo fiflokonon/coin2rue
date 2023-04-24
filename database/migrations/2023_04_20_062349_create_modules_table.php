@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->text('description');
-            $table->string('image_link');
+            $table->string('titre');
+            $table->text('description')->nullable();
+            $table->string('image_link')->nullable();
             $table->boolean('statut')->default(false);
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');

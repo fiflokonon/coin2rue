@@ -7,5 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Progression extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'progressionable_id',
+        'progressionable_type',
+        'progression'
+    ];
+
+    public function progressionable()
+    {
+        return $this->morphTo();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
+
+

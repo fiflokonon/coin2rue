@@ -13,12 +13,18 @@ class Reponse extends Model
         'question_id',
         'reponse',
         'juste',
+        'user_id',
         'statut'
     ];
 
     public function question()
     {
         return $this->belongsTo(Question::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
 

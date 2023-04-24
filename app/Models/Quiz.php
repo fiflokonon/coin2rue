@@ -5,20 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quizz extends Model
+class Quiz extends Model
 {
     use HasFactory;
-
+    protected $table = 'quizes';
     protected $fillable = [
         'titre',
         'description',
-        'temps_limite',
         'pass_mark',
-        'randomize_questions',
-        'randomize_answers',
-        'image_link',
         'user_id',
         'lecon_id',
+        'module_id',
+        'statut'
     ];
 
     public function questions()
@@ -31,6 +29,10 @@ class Quizz extends Model
         return $this->belongsTo(Lecon::class);
     }
 
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

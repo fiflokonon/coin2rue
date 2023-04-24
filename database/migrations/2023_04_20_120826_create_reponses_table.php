@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('reponses', function (Blueprint $table) {
             $table->id();
+            $table->string('reponse');
+            $table->boolean('juste')->default(0);
+            $table->foreignId('question_id')->constrained('questions');
+            $table->foreignId('user_id')->constrained('users');
+            $table->boolean('statut')->default(0);
             $table->timestamps();
         });
     }

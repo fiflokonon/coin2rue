@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('image_link')->nullable();
             $table->foreignId('user_id');
-            $table->foreignId('formation_id');
             $table->foreignId('module_id');
             $table->foreignId('lecon_parent_id')->nullable()->constrained('lecons');
             $table->boolean('statut')->default(0);

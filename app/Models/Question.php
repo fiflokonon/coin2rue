@@ -11,20 +11,25 @@ class Question extends Model
 
     protected $fillable = [
         'question',
-        'quizz_id',
+        'quiz_id',
         'true_or_false',
         'mutiple_answers',
         'one_answer',
+        'user_id',
         'statut'
     ];
 
 
     public function quiz()
     {
-        return $this->belongsTo(Quizz::class);
+        return $this->belongsTo(Quiz::class);
     }
 
-    // Une question a plusieurs réponses
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function reponses()
     {
         return $this->hasMany(Reponse::class);

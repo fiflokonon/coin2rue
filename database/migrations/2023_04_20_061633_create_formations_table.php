@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->text('description');
-            $table->integer('prix');
-            $table->integer('duree');
+            $table->string('titre');
+            $table->text('description')->nullable();
+            $table->integer('prix')->nullable();
+            $table->integer('duree')->nullable();
             $table->string('image')->nullable();
             $table->boolean('statut_admin')->default(0);
             $table->boolean('statut')->default(0);

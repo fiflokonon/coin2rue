@@ -11,14 +11,14 @@ class Formation extends Model
 
     protected $table = 'formations';
     protected $fillable = [
-        'nom',
+        'titre',
         'description',
         'prix',
         'duree',
         'image',
+        'user_id',
         'statut_admin',
         'statut',
-        'user_id',
     ];
 
     public function user()
