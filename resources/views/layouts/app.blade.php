@@ -28,15 +28,15 @@
 
 	<!-- Add your site or application content here -->
 	<!-- preloader -->
-	<div id="preloader">
+	{{-- <div id="preloader">
 		<div class="preloader">
 			<span></span>
 			<span></span>
 		</div>
-	</div>
+	</div> --}}
 	<!-- preloader end  -->
 	<!-- header-area start -->
-    @include('livewire.site.partials.header')
+    @yield('header-area')
 
 	<!-- header-area end -->
 

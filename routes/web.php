@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Site\WelcomeComponent;
 use App\Http\Livewire\Dashboard\DashboardComponent;
+use App\Http\Livewire\Site\Formations\AllFormationComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Livewire\Dashboard\DashboardComponent;
 Route::get('/', WelcomeComponent::class)->name('welcome');
 
 Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
+Route::get('/all-formations', AllFormationComponent::class)->name('allformations');
 
 // Route::middleware([
 //     'auth:sanctum',
