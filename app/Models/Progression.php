@@ -11,7 +11,7 @@ class Progression extends Model
         'user_id',
         'progressionable_id',
         'progressionable_type',
-        'progression'
+        'pourcentage'
     ];
 
     public function progressionable()

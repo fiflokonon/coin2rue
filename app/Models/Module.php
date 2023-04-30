@@ -12,7 +12,7 @@ class Module extends Model
     protected $fillable = [
         'titre',
         'description',
-        'image',
+        'image_link',
         'statut',
         'formation_id',
         'created_by',

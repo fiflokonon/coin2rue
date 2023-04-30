@@ -7,34 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quiz extends Model
 {
-    use HasFactory;
     protected $table = 'quizes';
     protected $fillable = [
         'titre',
         'description',
         'pass_mark',
         'user_id',
-        'lecon_id',
-        'module_id',
+        'quizable_id',
+        'quizable_type',
         'statut'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function quizable()
+    {
+        return $this->morphTo();
+    }
 
     public function questions()
     {
         return $this->hasMany(Question::class);
     }
-
-    public function lecon()
-    {
-        return $this->belongsTo(Lecon::class);
-    }
-
-    public function module()
-    {
-        return $this->belongsTo(Module::class);
-    }
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
+
+

@@ -9,16 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('quizes', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('description')->nullable();
-            $table->string('pass_mark')->nullable();
-            $table->foreignId('lecon_id')->nullable()->constrained('lecons');
-            $table->foreignId('module_id')->nullable()->constrained('modules');
-            $table->foreignId('user_id')->constrained('users');
+            $table->text('description')->nullable();
+            $table->unsignedInteger('pass_mark')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('quizable_id');
+            $table->string('quizable_type');
+            // Ajout de l'index pour la colonne polymorphe
+            $table->index(['quizable_id', 'quizable_type']);
             $table->boolean('statut')->default(0);
             $table->timestamps();
         });

@@ -26,6 +26,13 @@ class DatabaseSeeder extends Seeder
             RoleTableSeeder::class,
             PermissionTableSeeder::class,
             UserTableSeeder::class,
+            FormationSeeder::class,
+            ModuleSeeder::class,
+            LeconSeeder::class,
+            QuizSeeder::class,
+            QuestionSeeder::class,
+            ReponseSeeder::class,
+            ProgressionSeeder::class
         ]);
     }
 }
