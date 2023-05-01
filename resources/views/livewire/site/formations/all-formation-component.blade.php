@@ -37,7 +37,7 @@
                             <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>-->
                             <div class="mt-3">
                                 <a href="" class="text-primary">En savoir plus  <i class="fa fa-chevron-right"></i></a>
-                                <a href="{{ route('one-formation', ['id' => $formation->id]) }}" class="btn py-2 rounded-pill float-end text-light" style="background-color: #FB9C2C">
+                                <a href="{{ route('oneformations', ['id' => $formation->id]) }}" class="btn py-2 rounded-pill float-end text-light" style="background-color: #FB9C2C">
                                     Commencer
                                 </a>
                             </div>
