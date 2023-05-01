@@ -21,7 +21,7 @@ Route::get('/', WelcomeComponent::class)->name('welcome');
 
 Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
 Route::get('/all-formations', AllFormationComponent::class)->name('allformations');
-Route::get('/one-formations', OneFormationComponent::class)->name('oneformations');
+Route::get('/one-formations/{id}', OneFormationComponent::class)->name('oneformations');
 
 // Route::middleware([
 //     'auth:sanctum',

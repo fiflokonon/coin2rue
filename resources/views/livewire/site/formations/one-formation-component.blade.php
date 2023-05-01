@@ -21,6 +21,25 @@
 		<!--page-title-area end-->
 		<!--our-journey-area start-->
 		<section class="our-journey-area time-line pt-50 pb-85 pt-md-60 pb-md-25 pt-xs-60 pb-xs-25">
+            <div class="container">
+                <div class="banner">
+                    <div class="trophy">
+                        <i class="fa fa-trophy"></i>
+                    </div>
+                    <div class="modules-container text-right">
+                        <div class="progress bg-transparent">
+                            <div class="module"><span>1</span></div>
+                            <div class="module"><span>2</span></div>
+                            <div class="module"><span>3</span></div>
+                            <div class="module"><span>4</span></div>
+                            <div class="module"><span>5</span></div>
+                            <div class="module"><span>6</span></div>
+                            <div class="module"><span>7</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 			<div class="container">
 				<div class="row">
                     <div class="col-md-12 text-center mb-100">

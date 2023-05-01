@@ -27,104 +27,24 @@
                         <h2>Les formations de <br>votre entreprise</h2>
                         <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores <br> nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>
                     </div>
-					<div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Commencer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
+					@foreach($formations as $formation)
                     <div class="col-md-3 col-lg-4 mt-5" >
                         <div class="card p-3" style="border-radius:5%" >
                           <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
+                            <h3 class="card-title mb-3">{{ $formation->titre }}</h3>
+                            <p class="card-text">{{ $formation->description }}</p>
+                            <hr style="width: 10px;">
+                            <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>-->
                             <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
+                                <a href="" class="text-primary">En savoir plus  <i class="fa fa-chevron-right"></i></a>
+                                <a href="{{ route('one-formation', ['id' => $formation->id]) }}" class="btn py-2 rounded-pill float-end text-light" style="background-color: #FB9C2C">
                                     Commencer
                                 </a>
                             </div>
                           </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Commencer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Commencer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Commencer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Commencer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
-
+                    @endforeach
                     <div class="col-md-12 text-center mb-100 mt-100">
                         <h2>Les formations de <br>votre entreprise</h2>
                         <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores <br> nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>
