@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Auth\LoginComponent;
 use App\Http\Livewire\Site\WelcomeComponent;
+use App\Http\Livewire\Auth\RegisterComponent;
 use App\Http\Livewire\Dashboard\DashboardComponent;
 use App\Http\Livewire\Site\Formations\AllFormationComponent;
 use App\Http\Livewire\Site\Formations\OneFormationComponent;
@@ -22,6 +24,9 @@ Route::get('/', WelcomeComponent::class)->name('welcome');
 Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
 Route::get('/all-formations', AllFormationComponent::class)->name('allformations');
 Route::get('/one-formations/{id}', OneFormationComponent::class)->name('oneformations');
+
+Route::get('/login', LoginComponent::class)->name('login');
+Route::get('/register', RegisterComponent::class)->name('register');
 
 // Route::middleware([
 //     'auth:sanctum',
