@@ -13,7 +13,7 @@ class Question extends Model
         'question',
         'quiz_id',
         'true_or_false',
-        'mutiple_answers',
+        'multiple_answer',
         'one_answer',
         'user_id',
         'statut'

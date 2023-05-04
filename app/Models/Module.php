@@ -32,4 +32,14 @@ class Module extends Model
     {
         return $this->belongsTo(User::class, 'created_by');
     }
+
+    public function progressions()
+    {
+        return $this->hasMany(Progression::class, 'progressionable_id');
+    }
+
+    public function quiz()
+    {
+        return $this->hasMany(Quiz::class, 'quizable_id');
+    }
 }

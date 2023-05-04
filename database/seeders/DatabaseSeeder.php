@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             FormationSeeder::class,
             ModuleSeeder::class,
             LeconSeeder::class,
+            ParagrapheSeeder::class,
             QuizSeeder::class,
             QuestionSeeder::class,
             ReponseSeeder::class,

@@ -30,4 +30,9 @@ class Formation extends Model
     {
         return $this->hasMany(Module::class);
     }
+
+    public function progressions()
+    {
+        return $this->hasMany(Progression::class, 'progressionable_id');
+    }
 }

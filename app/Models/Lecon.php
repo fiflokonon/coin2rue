@@ -53,4 +53,9 @@ class Lecon extends Model
     {
         return $this->hasMany(Paragraphe::class);
     }
+
+    public function progressions()
+    {
+        return $this->hasMany(Progression::class, 'progressionable_id');
+    }
 }

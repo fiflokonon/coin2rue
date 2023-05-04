@@ -26,11 +26,11 @@ class QuestionSeeder extends Seeder
                 Question::create([
                     'question' => $faker->sentence,
                     'true_or_false' => $faker->boolean,
-                    'mutiple_answers' => $faker->boolean,
+                    'multiple_answer' => $faker->boolean,
                     'one_answer' => $faker->boolean,
                     'quiz_id' => $quiz->id,
                     'user_id' => $users->random()->id,
-                    'statut' => $faker->randomElement(['brouillon', 'publie'])
+                    'statut' => $faker->boolean
                 ]);
             }
         }

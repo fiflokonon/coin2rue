@@ -11,13 +11,10 @@ class OneFormationComponent extends Component
     public function mount($id)
     {
         $this->formation_id = $id;
-        // dd($this->formation_id);
     }
     public function render()
     {
         $formation = Formation::find($this->formation_id);
-        // dd($formation);
-
         return view('livewire.site.formations.one-formation-component',[
             'formation' => $formation,
         ]);

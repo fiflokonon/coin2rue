@@ -27,10 +27,7 @@ class QuizSeeder extends Seeder
                 'user_id' => User::inRandomOrder()->first()->id,
                 'statut' => $faker->boolean()
             ]);
-            /*$quizableType = $faker->randomElement(['Formation', 'Lecon', 'Module']);
-            $quizableId = $quizableType::inRandomOrder()->first()->id;
-            $quiz->quizable()->associate($quizableType::find($quizableId));
-            $quiz->save();*/
+
             $quizableType = $faker->randomElement(['\App\Models\Formation', '\App\Models\Lecon', '\App\Models\Module']);
             if (!class_exists($quizableType)) {
                 throw new \Exception('La classe '.$quizableType.' n\'a pas été trouvée');
@@ -38,7 +35,7 @@ class QuizSeeder extends Seeder
             $quizableId = $quizableType::inRandomOrder()->first()->id;
             $quizableModel = $quizableType;
             $quiz->quizable()->associate($quizableModel::find($quizableId));
-
+            $quiz->save();
         }
     }
 }

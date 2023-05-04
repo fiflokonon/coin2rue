@@ -16,14 +16,14 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        background-color: #005ce6;
-        color: #fff;
+        background: whitesmoke;
+        color: black;
     }
 
     .banner .trophy {
         position: absolute;
         left: 0;
-        top: 0;
+        top: -20px;
         height: 100%;
         display: flex;
         align-items: center;
@@ -46,14 +46,16 @@
 
     .banner .module {
         position: relative;
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
-        background-color: #fff;
+        background-color: black;
         margin-right: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 50px;
+        padding-top: -50px;
     }
 
     .banner .module:last-child {
@@ -62,16 +64,32 @@
 
     .banner .module span {
         font-size: 12px;
-        color: #000;
+        color: whitesmoke;
     }
 
     .banner .module:not(:first-child)::before {
         content: '';
-        height: 2px;
+        height: 3px;
         width: 20px;
-        background-color: #fff;
+        background-color: black;
         position: absolute;
         left: -10px;
-        top: 9px;
+        top: 10px;
+    }
+
+    .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .number {
+        font-size: 25px;
+        font-weight: bold;
     }
 </style>

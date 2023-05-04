@@ -16,7 +16,7 @@ class LeconSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 10; $i++) { // Changez "10" pour générer plus ou moins de données
+        for ($i = 0; $i < 30; $i++) { // Changez "10" pour générer plus ou moins de données
             Lecon::create([
                 'titre' => $faker->sentence(),
                 'description' => $faker->paragraph(),
