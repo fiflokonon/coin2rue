@@ -1,3 +1,4 @@
+
 <header class="header-style-4">
     <div class="main-header-area theme-gradient-1">
         <div class="container">
@@ -38,7 +39,7 @@
                         <a href="" class="btn btn-warning px-5 rounded-pill">
                             INSCRIPTIONS
                         </a>
-                       
+
                     </div>
                 </div>
             </div>

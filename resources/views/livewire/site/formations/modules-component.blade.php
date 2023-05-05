@@ -61,7 +61,7 @@
                             <div class="card">
                                 <div class="card-header" style="font-weight: bold">
                                     {{ $quiz->titre }}
-                                    <a href="#"><button class="btn btn-info text-light float-end"><i class="fa fa-eye"></i> Voir plus</button></a>
+                                    <a href="{{ route('quiz', ['id' => $quiz->id]) }}"><button class="btn btn-info text-light float-end"><i class="fa fa-eye"></i> Voir plus</button></a>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">

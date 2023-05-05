@@ -18,7 +18,7 @@ class LeconSeeder extends Seeder
 
         for ($i = 0; $i < 30; $i++) { // Changez "10" pour générer plus ou moins de données
             Lecon::create([
-                'titre' => $faker->sentence(),
+                'titre' => $faker->text(50),
                 'description' => $faker->paragraph(),
                 'image_link' => $faker->imageUrl(),
                 'module_id' => $faker->numberBetween(1, 10),
