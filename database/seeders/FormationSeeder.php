@@ -82,7 +82,7 @@ class FormationSeeder extends Seeder
                 'duree' => 20,
                 'image' => 'https://example.com/images/compta.png',
                 'user_id' => 1,
-                'statut_admin' => true,
+                'statut_admin' => false,
                 'statut' => true,
             ],
             [
@@ -92,7 +92,7 @@ class FormationSeeder extends Seeder
                 'duree' => 30,
                 'image' => 'https://example.com/images/crise.png',
                 'user_id' => 2,
-                'statut_admin' => true,
+                'statut_admin' => false,
                 'statut' => true,
             ],
             [
@@ -102,7 +102,7 @@ class FormationSeeder extends Seeder
                 'duree' => 15,
                 'image' => 'https://example.com/images/personnel.png',
                 'user_id' => 3,
-                'statut_admin' => true,
+                'statut_admin' => false,
                 'statut' => true,
             ],
             [

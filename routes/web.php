@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Site\Formations\ModulesComponent;
 use App\Http\Livewire\Site\Formations\OneLeconComponent;
+use App\Http\Livewire\Site\Formations\QuizComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Auth\LoginComponent;
 use App\Http\Livewire\Site\WelcomeComponent;
@@ -30,6 +31,7 @@ Route::get('/modules/{id}/lecons', ModulesComponent::class)->name('lecons');
 Route::get('/lecons/{id}', OneLeconComponent::class)->name('onelecon');
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
+Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 
 // Route::middleware([
 //     'auth:sanctum',

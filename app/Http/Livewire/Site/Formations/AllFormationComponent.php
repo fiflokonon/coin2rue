@@ -2,33 +2,53 @@
 
 namespace App\Http\Livewire\Site\Formations;
 
+use App\Models\Progression;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\Formation;
 
 class AllFormationComponent extends Component
 {
-    public function render()
+    /** COMMENCER UNE FORMATION */
+    public function startFormation(int $formation_id)
     {
-        /*$user = auth()->user();
-        $progressions = $user->progressions()->orderByDesc('created_at')->get();
-        $formationsTriees = [];
-        foreach ($formations as $formation) {
-            // Vérifier si l'utilisateur a déjà une progression correspondante à cette formation
-            $progressionExistante = $progressions->contains(function ($value) use ($formation) {
-                return $value->progressionnable_type === 'Formation' && $value->progressionnable_id === $formation->id;
-            });
-            // Ajouter la formation à la liste triée, en haut si une progression existe, en bas sinon
-            if ($progressionExistante) {
-                array_unshift($formationsTriees, $formation);
-            } else {
-                $formationsTriees[] = $formation;
+        if (Auth::check())
+        {
+            $formation = Formation::findOrFail($formation_id);
+            if ($formation)
+            {
+                $progression_formation = Auth::user()->progressions()
+                    ->where('progressionable_id', $formation->id)
+                    ->where('progressionable_type', 'App\Models\Formation')
+                    ->first();
+                if ($progression_formation)
+                {
+                    return redirect()->back()->with(['error' => 'Vous avez déjà commencé la formation']);
+                }
+                else
+                {
+                    $progression = new Progression();
+                    $progression->user_id = auth()->user()->id;
+                    $progression->progressionable_id = $formation_id;
+                    $progression->progressionable_type = 'App\Models\Formation';
+                    $progression->pourcentage = 0;
+                    $progression->save();
+                }
             }
         }
-        */
-        $formations = Formation::all();
-        #dd(auth()->user());
+        else
+        {
+            return redirect('/login');
+        }
+    }
+
+    public function render()
+    {
+        $formation_actives = Formation::where('statut_admin', true)->get();
+        $formation_inactives = Formation::where('statut_admin', false)->get();
         return view('livewire.site.formations.all-formation-component',[
-            'formations' => $formations,
+            'formation_actives' => $formation_actives,
+            'formation_inactives' => $formation_inactives
         ]);
     }
 }

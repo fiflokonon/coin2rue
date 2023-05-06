@@ -27,12 +27,12 @@
                         <h2>Les formations de <br>votre entreprise</h2>
                         <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores <br> nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>
                     </div>
-					@foreach($formations as $formation)
+					@foreach($formation_actives as $formation)
                         @php
-                            $progression = Auth::user()->progressions()
-                                ->where('progressionable_id', $formation->id)
-                                ->where('progressionable_type', 'App\Models\Formation')
-                                ->first();
+                        $progression = Auth::user()->progressions()
+                        ->where('progressionable_id', $formation->id)
+                        ->where('progressionable_type', 'App\Models\Formation')
+                        ->first();
                         @endphp
                     <div class="col-md-3 col-lg-4 mt-5" >
                         <div class="card p-3" style="border-radius:5%" >
@@ -42,7 +42,7 @@
                             <hr style="width: 10px;">
                             <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>-->
                             <div class="row">
-                                <a href="" class=" col-6 text-primary">En savoir plus  <i class="fa fa-chevron-right"></i></a>
+                                <a href="{{ route('oneformations', ['id' => $formation->id]) }}" class="col-6 text-primary">En savoir plus  <i class="fa fa-chevron-right"></i></a>
                                 @if($progression)
                                     <a href="{{ route('oneformations', ['id' => $formation->id]) }}" class="col-3 btn py-2 rounded-pill float-end text-light" style="background-color: #77DE51; width: 120px; height: 50px; font-size: 20px ">{{ $progression->pourcentage }} %</a>
                                 @else
@@ -53,108 +53,28 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="col-md-12 text-center mb-100 mt-100">
-                        <h2>Les formations de <br>votre entreprise</h2>
-                        <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores <br> nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>
+                    <div class="col-md-12 text-center mb-80 mt-100">
+                        <h2>Les formations du studio <br>Coin2Rue</h2>
+                        <div class="w-75" style="margin: auto">
+                            Nos équipes ont à cœur de créer de façon régulière du nouveau contenu pour vous permettre de progresser dans les domaines de votre choix.
+                        </div>
                     </div>
-
+                    @foreach($formation_inactives as $formation)
                     <div class="col-md-3 col-lg-4 mt-5" >
                         <div class="card p-3" style="border-radius:5%" >
                           <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h3 class="card-title mb-3">{{ $formation->titre }}</h3>
+                            <p class="card-text">{{ $formation->description }}</p>
                             <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Activer
-                                </a>
-                            </div>
+                            <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>-->
+                              <div class="row">
+                                  <a href="{{ route('oneformations', ['id' => $formation->id]) }}" class=" col-6 text-primary">En savoir plus  <i class="fa fa-chevron-right"></i></a>
+                                  <a href="{{ route('oneformations', ['id' => $formation->id]) }}" class="col-4 btn py-2 rounded-pill float-end text-light" style="background-color: #FB9C2C; ">Activer</a>
+                              </div>
                           </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Activer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Activer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Activer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Activer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-4 mt-5" >
-                        <div class="card p-3" style="border-radius:5%" >
-                          <div class="card-body">
-                            <h3 class="card-title mb-3">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <hr>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>
-                            <div class="mt-3">
-                                <a href="">En savoir plus</a>
-                                <a href="" class="btn btn-warning py-2 rounded-pill float-end">
-                                    Activer
-                                </a>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
+                    @endforeach
 				</div>
 			</div>
 		</section>

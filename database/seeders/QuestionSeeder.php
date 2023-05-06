@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
 class QuestionSeeder extends Seeder
 {
@@ -16,23 +17,58 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker::create('fr_FR');
         $quizzes = Quiz::all();
         $users = User::all();
 
         foreach ($quizzes as $quiz) {
-            $numQuestions = $faker->numberBetween($min = 3, $max = 10);
-            for ($i = 0; $i < $numQuestions; $i++) {
-                Question::create([
-                    'question' => $faker->sentence,
+                DB::table('questions')->insert([
+                    [
+                    'question' => 'Quel est le nom de la plus haute montagne du monde ?',
+                    'quiz_id' => $quiz->id,
                     'true_or_false' => $faker->boolean,
                     'multiple_answer' => $faker->boolean,
                     'one_answer' => $faker->boolean,
-                    'quiz_id' => $quiz->id,
                     'user_id' => $users->random()->id,
-                    'statut' => $faker->boolean
-                ]);
-            }
+                    'statut' => true,
+                ],
+                [
+                    'question' => 'Quel est le nom de la première femme à avoir remporté un prix Nobel ?',
+                    'quiz_id' => $quiz->id,
+                    'true_or_false' => $faker->boolean,
+                    'multiple_answer' => $faker->boolean,
+                    'one_answer' => $faker->boolean,
+                    'user_id' => $users->random()->id,
+                    'statut' => true
+                ],
+                [
+                    'question' => 'Combien de planètes gravitent autour du soleil ?',
+                    'quiz_id' => $quiz->id,
+                    'true_or_false' => $faker->boolean,
+                    'multiple_answer' => $faker->boolean,
+                    'one_answer' => $faker->boolean,
+                    'user_id' => $users->random()->id,
+                    'statut' => true
+                ],
+                [
+                    'question' => 'Quel est le nom de la capitale de l\'Italie ?',
+                    'quiz_id' => $quiz->id,
+                    'true_or_false' => $faker->boolean,
+                    'multiple_answer' => $faker->boolean,
+                    'one_answer' => $faker->boolean,
+                    'user_id' => $users->random()->id,
+                    'statut' => true
+                ],
+                [
+                    'question' => 'De quel pays provient le kangourou ?',
+                    'quiz_id' => $quiz->id,
+                    'true_or_false' => $faker->boolean,
+                    'multiple_answer' => $faker->boolean,
+                    'one_answer' => $faker->boolean,
+                    'user_id' => $users->random()->id,
+                    'statut' => true
+                ]]
+                );
         }
     }
 }

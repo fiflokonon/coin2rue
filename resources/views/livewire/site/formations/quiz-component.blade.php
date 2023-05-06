@@ -20,62 +20,101 @@
     </section>
     <!--page-title-area end-->
     <!--our-journey-area start-->
-    <section class="our-journey-area time-line pt-50 pb-85 pt-md-60 pb-md-25 pt-xs-60 pb-xs-25">
+    <!--services-area start-->
+    <section class="news-feed-area pt-120 pb-75 pt-md-60 pb-md-15 pt-xs-60 pb-xs-15">
         <div class="container">
-            <div class="col-md-12 text-center mb-20">
-                <h2>{{ $formation->titre }}</h2>
-                <p>{{ $formation->description }}</p>
-            </div>
-            <div class="banner">
-                <div class="trophy">
-                    <i class="fa fa-trophy"></i>
-                </div>
-                <div class="modules-container">
-                    <div class="progress bg-transparent" style="height: 70px; width: 150px">
-                        @php
-                            $i = 1;
-                        @endphp
-                        @foreach($formation->modules as $module)
-                            <div class="module"><span>{{ $i++ }}</span></div>
-                        @endforeach
+            <div class="row mb-15">
+                <div class="col-lg-8 pe-xl-0">
+                    <div style="width: 100%; height: 50px; background-color: #0c2168">
+                        <h2 class="text-center text-light">{{ $quiz->titre }}</h2>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                @php
-                    $i = 1;
-                @endphp
-                @foreach($formation->modules as $module)
-                    @php
-                        $progression = Auth::user()->progressions()
-                            ->where('progressionable_id', $module->id)
-                            ->where('progressionable_type', 'App\Models\Module')
-                            ->first();
-                    @endphp
-                    <div class="col-md-3 col-lg-3 mt-5" >
-                        <div class="text-center">
-                            <button class="btn btn-info rounded-circle p-3 mb-3 px-4">{{ $i++ }}</button>
-                        </div>
-                        <div class="card h-80">
-                            <div class="p-2 m-3">
-                                <h6 class="pl-5">{{ $module->titre }}</h6>
-                            </div>
-                            <div>
-                                <img src="{{ asset('assets/site/img/home-5/2-520x350.jpg') }}" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body  d-flex">
-                                <div class="mr-30">
-                                    <h6 class="card-title">{{ count($module->lecons) }} Leçons</h6>
-                                </div>
-                                @if($progression)
-                                    <a href="{{ route('lecons', ['id' => $module->id]) }}" class="btn btn-success">{{ $progression->pourcentage }} %</a>
-                                @else
-                                    <a href="{{ route('lecons', ['id' => $module->id]) }}" class="btn btn-secondary">0 %</a>
+                    <div class="news-details-left mb-30">
+                        @foreach($quiz->questions as $question)
+                            <div class="mb-20">
+                                <p class="mb-10"><b>{{ $question->question }}</b></p>
+                                @if($question->true_or_false)
+                                    <ul>
+                                        <li><input type="radio" name="quest"> Oui</li>
+                                        <li><input type="radio" name="quest"> Non</li>
+                                    </ul>
+                                @elseif($question->one_answer)
+                                    <ul>
+                                        @foreach($question->reponses as $reponse)
+                                            <li><input type="radio" name="quest"> {{ $reponse->reponse }}</li>
+                                        @endforeach
+                                    </ul>
+                                @elseif($question->multiple_answer)
+                                    <ul>
+                                        @foreach($question->reponses as $reponse)
+                                            <li><input type="checkbox" name="check"> {{ $reponse->reponse }}</li>
+                                        @endforeach
+                                    </ul>
                                 @endif
                             </div>
+                        @endforeach
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="btn-list2 list-none d-sm-flex align-items-center justify-content-center">
+                                <li><a href="#" class="btn btn-primary mr-20">Correction <i class="fa fa-check-circle"></i></a></li>
+                                <li><a href="#" class="btn btn-primary">Recommencer <i class="fas fa-sync-alt"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-                @endforeach
+                </div>
+                <div class="col-lg-4 pl-30 pl-lg-15 pl-md-15 pl-xs-15">
+                    <div class="news-right-widget">
+                        <div class="widget widget-post mb-40">
+                            <div class="widget-title-box pb-25 mb-30">
+                                <h4 class="widget-sub-title2 fs-20">Popular Feeds</h4>
+                            </div>
+                            <ul class="post-list">
+                                <li>
+                                    <div class="blog-post mb-30">
+                                        <a href="news-details.html"><img src="img/blog/post-1.jpg" alt="Post Img"></a>
+                                        <div class="post-content">
+                                            <h6 class="mb-10"><a href="news-details.html">Having education in an area helps</a></h6>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March 2022</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="blog-post mb-30">
+                                        <a href="news-details.html"><img src="img/blog/post-2.jpg" alt="Post Img"></a>
+                                        <div class="post-content">
+                                            <h6 class="mb-10"><a href="news-details.html">people think, feel, & behave in a way</a></h6>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March 2022</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="blog-post mb-30">
+                                        <a href="news-details.html"><img src="img/blog/post-3.jpg"
+                                                                         alt="Post Img"></a>
+                                        <div class="post-content">
+                                            <h6 class="mb-10"><a href="news-details.html">that contributes to
+                                                    their success</a></h6>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March
+													2022</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="blog-post">
+                                        <a href="news-details.html"><img src="img/blog/post-4.jpg"
+                                                                         alt="Post Img"></a>
+                                        <div class="post-content">
+                                            <h6 class="mb-10"><a href="news-details.html">improves not only
+                                                    their personal</a></h6>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March
+													2022</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
