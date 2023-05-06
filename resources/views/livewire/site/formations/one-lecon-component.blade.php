@@ -29,7 +29,18 @@
                         <h2 class="text-center text-light">{{ $lecon->titre }}</h2>
                     </div>
                     <div class="news-details-left mb-30">
-                        <img class="img-fluid mb-5" src="{{asset('assets/site/img/home-5/2-520x350.jpg')}}" alt="Blog Img">
+                        <video controls width="800">
+                            <source src="https://www.youtube.com/watch?v=KvORw7pvpMs" type="video">
+
+                            <source src="https://www.youtube.com/watch?v=KvORw7pvpMs" type="video/mp4">
+
+                            Download the
+                            <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">WEBM</a>
+                            or
+                            <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">MP4</a>
+                            video.
+                        </video>
+
                         @foreach($lecon->paragraphes as $paragraphe)
                             <p class="mb-55">
                                 {{ $paragraphe->contenu }}
