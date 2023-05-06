@@ -33,6 +33,7 @@ class AllFormationComponent extends Component
                     $progression->progressionable_type = 'App\Models\Formation';
                     $progression->pourcentage = 0;
                     $progression->save();
+                    return redirect()->to('/one-formations/' . $formation_id);
                 }
             }
         }
