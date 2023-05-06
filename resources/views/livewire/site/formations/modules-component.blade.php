@@ -211,6 +211,30 @@
 
 					</div>
                     @endforeach
+                        @php
+                            $i = 1;
+                        @endphp
+                        <h3 class="text-primary mb-3"><i class="fa fa-pencil"></i> Application</h3>
+                        @foreach($module->quiz as  $quiz)
+                            <div class="col-md-8 mb-3">
+                                <div class="card">
+                                    <div class="card-header" style="font-weight: bold">
+                                        {{ $quiz->titre }}
+                                        <a href="{{ route('quiz', ['id' => $quiz->id]) }}"><button class="btn btn-info text-light float-end"><i class="fa fa-eye"></i> Voir plus</button></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-2 circle" style="margin-left: -15px;">
+                                                <span class="number">{{ $i++ }}</span>
+                                            </div>
+                                            <div class="col-md-10 justify-content-center">
+                                                {{ $quiz->description }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 				</div>
 			</div>
 		</section>

@@ -82,23 +82,12 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12">
                         <div class="slider__content3 text-center">
-                            <h5 class="sub-title mb-15">IT Software Solution & Consultation</h5>
-                            <h1 class="main-title-four mb-50">Technology</h1>
+                            <div class="main-title-four mb-50" style="font-size: 80px">Trouvez le meilleur lieu à proximité de chez vous</div>
+                            <div class="text-light mb-50" style="font-size: 20px">Nous comptons aujourd'hui, <span style="color: #FB9C2C">4500</span> lieux qui pourront vous satisfaire! Chaque
+                            jour, de nouvelles entreprises nous font confiance! <span style="color: #FB9C2C">Participer vous aussi à notre développement</span></div>
                             <div class="section-btn">
-                                <div class="rts-btn">
-                                    <a href="index-5.html#">Free Consultation</a>
-                                </div>
-                                <div class="rts-video">
-                                    <div class="about-video-wrapper">
-                                        <a href="https://www.youtube.com/watch?v=S05bHj0LBE4" class="popup-video">
-                                            <i class="far fa-play"></i>
-                                        </a>
-                                    </div>
-                                    <div class="video-desc">
-                                        <p>Video Showcase</p>
-                                        <p>Watch How it works?</p>
-                                    </div>
-                                </div>
+                                <a href="index-5.html#"class=" btn text-light text-center" style="background: none; border: 1px solid whitesmoke; border-radius: 25px; height: 50px">Voir les catégories</a>
+                                <a href="index-5.html#" class="btn text-light text-center" style="background-color: #FB9C2C; border-radius: 25px; height: 50px; margin-left: 20px;">Je suis une entreprise</a>
                             </div>
                         </div>
                     </div>
