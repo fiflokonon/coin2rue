@@ -46,7 +46,7 @@
                                 @if($progression)
                                     <a href="{{ route('oneformations', ['id' => $formation->id]) }}" class="col-3 btn py-2 rounded-pill float-end text-light" style="background-color: #77DE51; width: 120px; height: 50px; font-size: 20px ">{{ $progression->pourcentage }} %</a>
                                 @else
-                                    <a href="{{ route('oneformations', ['id' => $formation->id]) }}" class="col-5 btn py-2 rounded-pill float-end text-light" style="background-color: #FB9C2C">Commencer</a>
+                                    <a wire:click.prevent='startFormation({{$formation->id}})' class="col-5 btn py-2 rounded-pill float-end text-light" style="background-color: #FB9C2C">Commencer</a>
                                 @endif
                             </div>
                           </div>
