@@ -89,25 +89,20 @@
                                 </li>
                                 <li>
                                     <div class="blog-post mb-30">
-                                        <a href="news-details.html"><img src="img/blog/post-3.jpg"
-                                                                         alt="Post Img"></a>
+                                        <a href="news-details.html"><img src="img/blog/post-3.jpg" alt="Post Img"></a>
                                         <div class="post-content">
-                                            <h6 class="mb-10"><a href="news-details.html">that contributes to
-                                                    their success</a></h6>
-                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March
-													2022</span>
+                                            <h6 class="mb-10"><a href="news-details.html">that contributes to their success</a></h6>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March 2022</span>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="blog-post">
-                                        <a href="news-details.html"><img src="img/blog/post-4.jpg"
-                                                                         alt="Post Img"></a>
+                                        <a href="news-details.html"><img src="img/blog/post-4.jpg" alt="Post Img"></a>
                                         <div class="post-content">
                                             <h6 class="mb-10"><a href="news-details.html">improves not only
                                                     their personal</a></h6>
-                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March
-													2022</span>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March 2022</span>
                                         </div>
                                     </div>
                                 </li>
