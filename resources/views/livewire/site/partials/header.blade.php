@@ -36,9 +36,19 @@
                 </div>
                 <div class="col-lg-2 col-6 text-end">
                     <div class="search-area search-area2">
-                        <a href="" class="btn btn-warning px-5 rounded-pill text-white">
+
+                        @if (Auth::guest())
+
+                        <a href="{{route('login')}}" class="btn btn-warning px-5 rounded-pill text-white">
                             INSCRIPTIONS
                         </a>
+                        @else
+                        <div class="d-line">
+                            <img src="{{ asset('assets/site/img/profil.png') }}" alt="">
+
+                            <span class="ml-5" style="font-size: 20px"> ToysRus Lyon</span>
+                        </div>
+                        @endif
 
                     </div>
                 </div>
