@@ -15,7 +15,7 @@
     04. common
     05. overlay
     06. header
-    07. breadcrumb 
+    07. breadcrumb
     08. mobile-menu
     09. typography
     10. search
@@ -213,7 +213,7 @@ label {
 
 ::selection {
   background: #000;
-  color: #ffffff;
+  color: #000000;
   text-shadow: none;
 }
 
@@ -707,7 +707,7 @@ label {
   display: none;
 }
 .navbar-nav .nav-item .nav-link:hover {
-  color: #085cbb;
+  color: #FB9C2C;
 }
 .navbar-nav .nav-item .nav-link i {
   font-size: 10px;
@@ -720,7 +720,7 @@ label {
   background-image: linear-gradient(0deg, rgb(8, 106, 216) 0%, rgb(55, 140, 255) 100%);
 }
 .navbar-nav .nav-item:hover > .nav-link {
-  color: #086ad8;
+  color: #FB9C2C;
 }
 
 .navbar .dropdown-menu {
@@ -758,7 +758,7 @@ label {
 }
 .navbar .dropdown-menu .dropdown-item:hover {
   transform: translatex(5px);
-  color: #086ad8;
+  color: #FB9C2C;
   background-color: transparent;
   -webkit-transform: translatex(5px);
   -moz-transform: translatex(5px);
@@ -799,7 +799,7 @@ label {
   -o-transform: scaleX(1);
 }
 .navbar .navbar-nav .nav-item.active > .nav-link {
-  color: #086ad8;
+  color: #FB9C2C;
   position: relative;
 }
 
@@ -839,10 +839,10 @@ label {
   color: #505050;
 }
 .sticky-menu .navbar-nav .nav-item .nav-link:hover {
-  color: #086ad8;
+  color: #FB9C2C;
 }
 .sticky-menu .navbar-nav .nav-item .nav-link.current {
-  color: #086ad8 !important;
+  color: #FB9C2C !important;
 }
 
 .right-language .language-btn {
@@ -1194,20 +1194,20 @@ label {
   display: none;
 }
 .menu-style-2 .navbar-nav .nav-item .nav-link {
-  color: #ffffff;
+  color: #414040;
   padding: 32px 0 29px 0;
 }
 .menu-style-2 .navbar-nav .nav-item .nav-link.current {
-  color: rgb(205, 217, 228) !important;
+  color: #FB9C2C !important;
 }
 .menu-style-2 .navbar-nav .nav-item:hover .nav-link {
-  color: rgb(210, 226, 255);
+  color: #FB9C2C;
 }
 .menu-style-2 .navbar-nav .nav-item.active > .nav-link {
-  color: rgb(210, 226, 255);
+  color: #FB9C2C;
 }
 .menu-style-2 .navbar .dropdown-menu .dropdown-item:hover {
-  color: #43b9fe;
+  color: #FB9C2C;
 }
 
 .transparent-header {
@@ -1580,7 +1580,7 @@ label {
   margin: 2px 3px;
 }
 .header-top-area.home-5 .main-header-area.menu-style-6 .container .menu-area .right-nav .hamburger-menu a span.dot1 {
-  background-color: #fff;
+  background-color: #444444;
   width: 8px !important;
   height: 8px !important;
   border-radius: 50%;
@@ -1734,7 +1734,7 @@ label {
   z-index: 2;
 }
 .page-title-wrapper .page-title {
-  font-size: 80px;
+  font-size: 50px;
   z-index: 1;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -1824,7 +1824,7 @@ ul.breadcrumb li a::before {
 }
 
 .title-area2 {
-  min-height: 500px;
+  min-height: 300px;
 }
 .title-area2::before {
   background: rgb(0, 0, 0);
@@ -1832,12 +1832,12 @@ ul.breadcrumb li a::before {
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .title-area2 {
-    min-height: 450px;
+    min-height: 250px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .title-area2 {
-    min-height: 350px;
+    min-height: 150px;
   }
 }
 @media (max-width: 767px) {

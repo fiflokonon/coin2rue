@@ -3,16 +3,16 @@
 @endsection
 <div>
     <!--page-title-area start-->
-		<section class="page-title-area title-area2" style="background-image: url(assets/site/img/page-title/page-title-bg2.jpg);">
+		<section class="page-title-area title-area2" style="background-color: #FB9C2C;">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-12">
 						<div class="page-title-wrapper text-start">
 							<ul class="breadcrumb list-none justify-content-start lh-1">
-								<li><a href="index.html">ACCUEIL</a></li>
-								<li class="active text-white fw-bold" aria-current="page">register</li>
+								<li><a href="{{ route('welcome') }}">ACCUEIL</a></li>
+								<li class="active text-white fw-bold" aria-current="page">Inscription</li>
 							</ul>
-							<h2 class="page-title text-white">register</h2>
+							<h2 class="page-title text-white">Créer un compte</h2>
 						</div>
 					</div>
 				</div>
@@ -20,47 +20,71 @@
 		</section>
 		<!--page-title-area end-->
 		<!--our-journey-area start-->
-		<section class="our-journey-area time-line pt-50 pb-85 pt-md-60 pb-md-25 pt-xs-60 pb-xs-25">
+		<section class="our-journey-area time-line pt-50 pb-85 pt-md-60 pb-md-25 pt-xs-60 pb-xs-25" style="background-color:#E6E5DD;">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-lg-6">
-						<div class="section-title mb-60">
-							<p class="fs-14 lh-1 mb-15">Get In Touch</p>
-							<h2 class="sect-title lh-1">register</h2>
+					<div class="col-lg-5 pb-20" style="background-color:#FFFFFF;">
+						<div class="section-title mb-60 pb-40 text-center" style="border-bottom: solid 2px rgb(125, 125, 125)">
+                            <h2 class="sect-title lh-1 mt-50 mb-50">Créer un compte</h2>
+							<p class="fs-14 lh-1 mb-15">Lorem ipsum dolor sit amet nunca dolor sit amet lorem ipsum dolor sit amet nunca deso et</p>
 						</div>
 						<form class="row contact-form mb-30" method="POST" action="{{ route('register') }}">
                             @csrf
 							<div class="col-lg-12 col-md-12">
 								<div class="input-box mail-input mb-20">
+                                    <label for="" class="mb-15" style="font-size: 15px"> Nom</label>
                                     <input type="text" required="" class="" name="name" placeholder="Entrer votre nom" value="{{old('name')}}" required autofocus autocomplete="name">
 								</div>
 							</div>
                             <div class="col-lg-12 col-md-12">
 								<div class="input-box mail-input mb-20">
+                                    <label for="" class="mb-20" style="font-size: 15px"> Prénoms</label>
+                                    <input type="text" required="" class="" name="name" placeholder="Entrer votre nom" value="{{old('prenoms')}}" required autofocus autocomplete="prenoms">
+								</div>
+							</div>
+                            <div class="col-lg-12 col-md-12">
+								<div class="input-box mail-input mb-20">
+                                    <label for="" class="mb-20" style="font-size: 15px"> Adresse Mail</label>
+
                                     <input type="text" required="" class="" name="email" placeholder="Votre Email" :value="old('email')" required autofocus >
 								</div>
 							</div>
                             <div class="col-lg-12 col-md-12">
 								<div class="input-box mb-20">
+                                    <label for="" class="mb-20" style="font-size: 15px"> Mot De Passe</label>
+
                                     <input class="" required="" type="password" name="password" placeholder="mot de passe" required autocomplete="new-password">
 
 								</div>
 							</div>
                             <div class="col-lg-12 col-md-12">
 								<div class="input-box mb-20">
+                                    <label for="" class="mb-20" style="font-size: 15px">Confirmation Mot De Passe</label>
+
                                 <input class="" required="" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
 								</div>
 							</div>
-                           :
 
-							<div class="col-12">
-								<button type="submit" class="form-btn form-btn3">Register</button>
-							</div>
-                            <div class="col-12">
-                                <div class="form-note text-center">Vous avez déjà un compte? <a href="{{route('login')}}">Connéxion</a>div>
-
+							<div class="col-12 mt-15">
+								<button type="submit" class="btn px-4 py-2 rounded-pill" style="background-color: #FB9C2C">Inscription</button>
 							</div>
 						</form>
+                        <div class="col-12 ml-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    S'inscrire à notre newsletter
+                                    pour se tenir au courant
+                                   des nouveautés.
+
+                                </label>
+                              </div>
+
+                        </div>
+                        <div class="col-12 ml-10 mt-20">
+                            <div class="form-note ">Vous avez déjà un compte? <a href="{{route('login')}}">Connéxion</a><div>
+
+                        </div>
 					</div>
 				</div>
 			</div>

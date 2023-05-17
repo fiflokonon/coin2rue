@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ asset('assets/site/css/nice-select.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/site/css/spacing.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/site/css/main.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/app.css') }}" />
 
 <style>
     .banner {

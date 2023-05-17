@@ -1,12 +1,12 @@
 
 <header class="header-style-4">
-    <div class="main-header-area theme-gradient-1">
+    <div class="main-header-area" style="background-color: #FFFFFF;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-2 col-6">
                     <div class="hamburger-menu hamburger-2">
                         <a href="javascript:void(0);">
-                            <img src="{{ asset('assets/site/img/icon/bar-1.png') }}" alt="Eclips">
+                            <img src="{{ asset('assets/site/img/icon/bar-1.png') }}" alt="Eclips" style="background-color: #303030">
                         </a>
                     </div>
                 </div>
@@ -36,9 +36,19 @@
                 </div>
                 <div class="col-lg-2 col-6 text-end">
                     <div class="search-area search-area2">
-                        <a href="" class="btn btn-warning px-5 rounded-pill">
+
+                        @if (Auth::guest())
+
+                        <a href="{{route('login')}}" class="btn btn-warning px-5 rounded-pill text-white">
                             INSCRIPTIONS
                         </a>
+                        @else
+                        <div class="d-line">
+                            <img src="{{ asset('assets/site/img/profil.png') }}" alt="">
+
+                            <span class="ml-5" style="font-size: 20px"> ToysRus Lyon</span>
+                        </div>
+                        @endif
 
                     </div>
                 </div>

@@ -41,9 +41,18 @@
 
                             <ul class="right-nav mb-0 d-flex align-items-center justify-content-end">
                                 <li>
-                                    <a href="" class="btn btn-warning px-5 rounded-pill">
+                                    @if (Auth::guest())
+
+                                    <a href="{{route('login')}}" class="btn btn-warning px-5 rounded-pill text-white">
                                         INSCRIPTIONS
                                     </a>
+                                    @else
+                                    <div class="d-line">
+                                        <img src="{{ asset('assets/site/img/profil.png') }}" alt="">
+
+                                        <span class="ml-5" style="font-size: 20px"> ToysRus Lyon</span>
+                                    </div>
+                                    @endif
                                 </li>
                             </ul>
                         </div>
@@ -65,8 +74,8 @@
                         <form action="">
                             <div class="row ">
                                 <div class="col-md-12 d-flex bd-highlight">
-                                    <input name="ville_id" id="ville_id" class="form-control" required>
-                                    <input name="ville_id" id="ville_id" class="form-control" required>
+                                    <input name="ville_id" id="ville_id" class="form-control" required placeholder="Je recherche un .. médecin, une pizzéria, une salle des fêtes...">
+                                    <input name="ville_id" id="ville_id" class="form-control" required placeholder="A quel endroit ?">
                                     <button type="" class="btn btn-warning p-2 px-5" style="margin-left: 40px">
                                         Rechecher
                                     </button>
@@ -82,12 +91,18 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-12">
                         <div class="slider__content3 text-center">
-                            <div class="main-title-four mb-50" style="font-size: 80px">Trouvez le meilleur lieu à proximité de chez vous</div>
-                            <div class="text-light mb-50" style="font-size: 20px">Nous comptons aujourd'hui, <span style="color: #FB9C2C">4500</span> lieux qui pourront vous satisfaire! Chaque
-                            jour, de nouvelles entreprises nous font confiance! <span style="color: #FB9C2C">Participer vous aussi à notre développement</span></div>
+                            <h5 class="sub-title mb-15">Trouvez le meilleur lieu <br> à proximité de chez vous</h5>
+                            <p class="text-white mb-5">Trouvez le meilleur lieu  à proximité de chez vous Trouvez le meilleur lieu  à proximité  de chez vous Trouvez le meilleur lieu <br> à proximité de chez vous Trouvez le meilleur lieu  à proximité de chez vous </p>
                             <div class="section-btn">
-                                <a href="index-5.html#"class=" btn text-light text-center" style="background: none; border: 1px solid whitesmoke; border-radius: 25px; height: 50px">Voir les catégories</a>
-                                <a href="index-5.html#" class="btn text-light text-center" style="background-color: #FB9C2C; border-radius: 25px; height: 50px; margin-left: 20px;">Je suis une entreprise</a>
+                                <div class="">
+                                    <a href="" class="btn btn-warning px-5 py-3 rounded-pill text-white">
+                                        Voir les catégories
+                                    </a>
+                                    <a href="{{route('login')}}" class="btn btn-warning px-5 py-3 rounded-pill text-white">
+                                        Je suis une entreprise
+                                    </a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -100,31 +115,23 @@
 
     </div> --}}
     <!--services-area start-->
-    <div class="services-area pt-120 pt-md-60 pt-xs-60 pb-100 pb-xs-50 home-5">
+    <div class="services-area pt-150 home-5">
         <div class="container">
-            <div class="rts-heading">
-                <div class="title-inner">
-                    <div class="sub-text">Our Services</div>
-                    <div class="title">We Offer a Leading<br>
-                        <b>IT Solution</b> World Wide
-                    </div>
-                </div>
-            </div>
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
                     <div class="services-wraper">
                         <div class="services-top">
                             <div class="services-icon">
-                                <img src="img/home-5/h4-feature-icon-1.webp" alt="">
+                                <img src="{{ asset('assets/site/img/icon/1.png') }}" alt="">
                             </div>
                         </div>
                         <div class="services-bottom">
                             <div class="services-title">
-                                <h2 class="title">Data Analytics</h2>
+                                <h2 class="title">Commerce</h2>
                             </div>
                             <p class="services-text">
-                                Corrupti magni voluptas assum enda, vitae nec dolores mole stie numquam totam,
-                                atquep
+                                Grâce à nos entreprises partenaires, vous avez la possibilité d'acheter leurs meilleurs produits sans vous déplacer (possibilité de livraison)
+
                             </p>
                         </div>
                         <div class="services-btn-part">
@@ -134,20 +141,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
                     <div class="services-wraper">
                         <div class="services-top">
                             <div class="services-icon">
-                                <img src="img/home-5/h4-feature-icon-2.webp" alt="">
+                                <img src="{{ asset('assets/site/img/icon/2.png') }}" alt="">
+
                             </div>
                         </div>
                         <div class="services-bottom">
                             <div class="services-title">
-                                <h2 class="title">Web Development</h2>
+                                <h2 class="title">Emploi</h2>
                             </div>
                             <p class="services-text">
-                                Weins ipsum dolor sit amet, cons adipisciit sed do eius modonr temeiusmod fugiat
-                                fames
+                                Au quotidien, ce sont des hommes et des femmes qui s'engagent à travailler pour un meilleur avenir. Trouver votre prochain emploi sur Coin2Rue
+
                             </p>
                         </div>
                         <div class="services-btn-part">
@@ -157,19 +165,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
                     <div class="services-wraper">
                         <div class="services-top">
                             <div class="services-icon">
-                                <img src="img/home-5/h4-feature-icon-3.webp" alt="">
+                                <img src="{{ asset('assets/site/img/icon/3.png') }}" alt="">
+
                             </div>
                         </div>
                         <div class="services-bottom">
                             <div class="services-title">
-                                <h2 class="title">UX/UI Design</h2>
+                                <h2 class="title">La vie d’entreprise</h2>
                             </div>
                             <p class="services-text">
-                                Optio dicta sapien, dolorem, habit asse aliquid numquam, nisi etia dignissim eiusmod
+                                Votre entreprise pourra communiquer avec vous toutes les données importantes du CSE, vos fiches de paies, contrat de travail.
                             </p>
                         </div>
                         <div class="services-btn-part">
@@ -179,135 +188,221 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                    <div class="services-wraper">
-                        <div class="services-top">
-                            <div class="services-icon">
-                                <img src="img/home-5/h4-feature-icon-4.webp" alt="">
-                            </div>
-                        </div>
-                        <div class="services-bottom">
-                            <div class="services-title">
-                                <h2 class="title">QA & Testing</h2>
-                            </div>
-                            <p class="services-text">
-                                Fugiat pariatur vestibulum eges tas wisi ullamcorper, sagittis duis praesent autem
-                                accusan
-                            </p>
-                        </div>
-                        <div class="services-btn-part">
-                            <div class="services-btn">
-                                <a href="index-5.html#"><i class="fal fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-area">
-                <h3 class="ques-text">
-                    Are you a driven and motivated 1st Line IT Support Engineer? <a href="index-5.html#">Now
-                        Hiring!</a>
-                </h3>
             </div>
         </div>
     </div>
     <!--services-area end-->
-    <!--about-us-area start-->
-    <section class="about-us-area pt-140 pb-75 pt-md-60 pb-md-30 pt-xs-60 pb-xs-75 home-5">
+    <!--counter-area start-->
+	<section class="grey-bg counter-area pb-90 pt-md-50 pb-md-30 pt-xs-50 pb-xs-30">
+			<div class="container">
+				<div class="row pt-100 pt-md-10 pt-xs-10">
+					<div class="col-lg-12">
+						<div class="section-title text-center mb-60">
+							<h5 class="sect-title">Explorez les entreprises par catégorie</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<div class="white-bg text-center mb-30 divmenu">
+							<div class="chart">
+                                <img src="{{ asset('assets/site/img/icon/3.png') }}" alt="">
+
+							</div>
+							<h5 class="">Restaurants</h5>
+
+						</div>
+					</div>
+                    <div class="col-lg-4 col-md-6">
+						<div class="white-bg  text-center mb-30 divmenu">
+							<div class="chart" data-percent="73">
+                                <img src="{{ asset('assets/site/img/icon/3.png') }}" alt="">
+
+							</div>
+							<h5 class="">Shopping</h5>
+
+						</div>
+					</div>
+                    <div class="col-lg-4 col-md-6">
+						<div class="white-bg text-center mb-30 divmenu">
+							<div class="chart" data-percent="73">
+                                <img src="{{ asset('assets/site/img/icon/3.png') }}" alt="">
+
+							</div>
+							<h5 class=""> nocturnes</h5>
+
+						</div>
+					</div>
+                    <div class="col-lg-4 col-md-6">
+						<div class="white-bg text-center mb-30 divmenu">
+							<div class="chart" data-percent="73">
+                                <img src="{{ asset('assets/site/img/icon/3.png') }}" alt="">
+
+							</div>
+							<h5 class="">Salon de beauté et Spas</h5>
+
+						</div>
+					</div>
+                    <div class="col-lg-4 col-md-6">
+						<div class="white-bg text-center mb-30 divmenu">
+							<div class="chart" data-percent="73">
+                                <img src="{{ asset('assets/site/img/icon/3.png') }}" alt="">
+
+							</div>
+							<h5 class="">Automobile</h5>
+
+						</div>
+					</div>
+                    <div class="col-lg-4 col-md-6">
+						<div class="white-bg text-center mb-30 divmenu">
+							<div class="chart" data-percent="73">
+                                <img src="{{ asset('assets/site/img/icon/3.png') }}" alt="">
+
+							</div>
+							<h5 class="">Plus</h5>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+	</section>
+	<!--counter-area end-->
+        <!--counter-area start-->
+	<section class="grey-bg counter-area pb-90 pt-md-50 pb-md-30 pt-xs-50 pb-xs-30">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about-img-wrapper mb-30">
-                        <img class="img-one img-fluid d-xxl-inline-block" src="img/home-5/h4-service.webp"
-                            alt="About Img">
-                        <div class="experience-box">
-                            <div class="count-text2 text-center mb-50">
-                                <h3><span class="counter">1234</span>
-                                    <span class="prefix">+</span>
-                                </h3>
-                                <span class="title"> Worldwide Our Clients</span>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+
+                            <div class="card-body p-3">
+                              <h5 class="card-title mb-4">VTECH : voiture électronique</h5>
+                              <div class="d-line mb-5">
+                                <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+
+                                <span> ToysRus Lyon</span>
+                                <span class="float-end">ToysRus Lyon</span>
+                              </div>
+                              <p class="card-text mt-5">This card has supporting text below as a natural lead-in to additional content.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-text-wrapper2 mb-30">
-                        <h6 class="semi-title">About Company</h6>
-                        <h2 class="sect-title mb-35">Bringing New IT Business Solutions</h2>
-                        <ul class="text-list list-none">
-                            <li>
-                                <div class="services-list">
-                                    <div class="services-icon">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                    <div class="services-text">
-                                        <h5 class="fs-20">SEO Worldwide</h5>
-                                        <p>Automotive has sought to change the way customers think about
-                                            auto service by providing knowledgeable</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="services-list">
-                                    <div class="services-icon">
-                                        <i class="fas fa-rocket"></i>
-                                    </div>
-                                    <div class="services-text">
-                                        <h5 class="fs-20">Search Engine Optimization</h5>
-                                        <p>Automotive has sought to change the way customers think about
-                                            auto service by providing knowledgeable</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="services-list">
-                                    <div class="services-icon">
-                                        <i class="fas fa-bell"></i>
-                                    </div>
-                                    <div class="services-text">
-                                        <h5 class="fs-20">Instant Support</h5>
-                                        <p>Automotive has sought to change the way customers think about
-                                            auto service by providing knowledgeable</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--about-us-area end-->
-    <!--cta-area start-->
-    <section class="cta-area cta-full5 home-5">
-        <div class="container">
-            <div class="cta-bg5">
-                <div class="row text-left">
-                    <div class="col-xxl-5 col-xl-4 col-lg-4"></div>
-                    <div class="col-xxl-7 col-xl-8 col-lg-8 col-md-12">
-                        <div class="cta-wrapper">
-                            <h2 class="sect-title5 text-white">
-                                Convey the pleasure of an performing magnificent moments & rising up the top.</h2>
-                            <div class="about-video-wrapper">
-                                <a href="https://www.youtube.com/watch?v=S05bHj0LBE4" class="popup-video">
-                                    <i class="far fa-play"></i>
-                                </a>
+                            <div class="card-footer">
+                                <span class="badge rounded-pill text-dark" style="background-color: rgba(6, 116, 236, 0.1);color: #0674EC;">10$</span>
                             </div>
+                          </div>
+                    </div>
+                    <div class="col">
+                      <div class="card h-100">
+                        <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+
+                        <div class="card-body p-3">
+                          <h5 class="card-title mb-4">VTECH : voiture électronique</h5>
+                          <div class="d-line mb-5">
+                            <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+
+                            <span> ToysRus Lyon</span>
+                            <span class="float-end">ToysRus Lyon</span>
+                          </div>
+                          <p class="card-text mt-5">This card has supporting text below as a natural lead-in to additional content.</p>
                         </div>
+                        <div class="card-footer">
+                            <span class="badge rounded-pill text-dark" style="background-color: rgba(6, 116, 236, 0.1);color: #0674EC;">10$</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+
+                            <div class="card-body p-3">
+                              <h5 class="card-title mb-4">VTECH : voiture électronique</h5>
+                              <div class="d-line mb-5">
+                                <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+
+                                <span> ToysRus Lyon</span>
+                                <span class="float-end">ToysRus Lyon</span>
+                              </div>
+                              <p class="card-text mt-5">This card has supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="badge rounded-pill text-dark" style="background-color: rgba(6, 116, 236, 0.1);color: #0674EC;">10$</span>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+
+                            <div class="card-body p-3">
+                              <h5 class="card-title mb-4">VTECH : voiture électronique</h5>
+                              <div class="d-line mb-5">
+                                <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+
+                                <span> ToysRus Lyon</span>
+                                <span class="float-end">ToysRus Lyon</span>
+                              </div>
+                              <p class="card-text mt-5">This card has supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="badge rounded-pill text-dark" style="background-color: rgba(6, 116, 236, 0.1);color: #0674EC;">10$</span>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+
+                            <div class="card-body p-3">
+                              <h5 class="card-title mb-4">VTECH : voiture électronique</h5>
+                              <div class="d-line mb-5">
+                                <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+
+                                <span> ToysRus Lyon</span>
+                                <span class="float-end">ToysRus Lyon</span>
+                              </div>
+                              <p class="card-text mt-5">This card has supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="badge rounded-pill text-dark" style="background-color: rgba(6, 116, 236, 0.1);color: #0674EC;">10$</span>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+
+                            <div class="card-body p-3">
+                              <h5 class="card-title mb-4">VTECH : voiture électronique</h5>
+                              <div class="d-line mb-5">
+                                <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+
+                                <span> ToysRus Lyon</span>
+                                <span class="float-end">ToysRus Lyon</span>
+                              </div>
+                              <p class="card-text mt-5">This card has supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="badge rounded-pill text-dark" style="background-color: rgba(6, 116, 236, 0.1);color: #0674EC;">10$</span>
+                            </div>
+                          </div>
                     </div>
                 </div>
-            </div>
+                <div class="text-center mt-50">
+                    <a href="" class="btn btn-warning px-5 rounded-pill mt-10">
+                        Tout voir
+                    </a>
+                </div>
         </div>
-    </section>
-    <!--cta-area end-->
+</section>
+<!--counter-area end-->
     <!--core-feature-area start-->
     <section class="core-feature-area pt-100 pt-md-60 pt-xs-120 pb-100 pb-md-30 pb-xs-30 home-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title text-center mb-55">
-                        <p class="lh-1 mb-10">Price & Plans</p>
-                        <h2 class="sect-title">Flexible Plans</h2>
+                        <h4 class="sect-title">Explorez les entreprises par catégorie
+                        </h4>
                     </div>
                 </div>
             </div>
