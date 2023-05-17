@@ -3,16 +3,16 @@
 @endsection
 <div>
     <!--page-title-area start-->
-		<section class="page-title-area title-area2" style="background-color: #FB9C2C;">
+		<section class="" style="background-color: #FB9C2C!important; height: 200px!important;">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-12">
-						<div class="page-title-wrapper text-start">
+						<div class="page-title-wrapper text-start" style="margin-top: 120px;">
 							<ul class="breadcrumb list-none justify-content-start lh-1">
 								<li><a href="{{ route('welcome') }}">ACCUEIL</a></li>
 								<li class="active text-white fw-bold" aria-current="page">Inscription</li>
 							</ul>
-							<h2 class="page-title text-white">Créer un compte</h2>
+							<h2 class="page-title text-white" style="font-size: 24px; margin-top: 15px;">Créer un compte</h2>
 						</div>
 					</div>
 				</div>
@@ -66,28 +66,42 @@
 							</div>
 
 							<div class="col-12 mt-15">
-								<button type="submit" class="btn px-4 py-2 rounded-pill" style="background-color: #FB9C2C">Inscription</button>
+								<button type="submit" class="btn px-4 py-2 rounded-pill text-light" style="background-color: #FB9C2C">Inscription</button>
 							</div>
 						</form>
                         <div class="col-12 ml-10">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                    S'inscrire à notre newsletter
-                                    pour se tenir au courant
-                                   des nouveautés.
-
-                                </label>
+                                <label class="form-check-label" for="flexCheckChecked">S'inscrire à notre newsletter pour se tenir au courant des nouveautés.</label>
                               </div>
-
                         </div>
                         <div class="col-12 ml-10 mt-20">
-                            <div class="form-note ">Vous avez déjà un compte? <a href="{{route('login')}}">Connéxion</a><div>
-
+                            <div class="form-note ">Vous avez déjà un compte? <a href="{{route('login')}}" style="text-decoration: underline; text-decoration-color: #0a58ca; color: #0a58ca">Connexion</a><div>
                         </div>
 					</div>
 				</div>
 			</div>
+            <div class="container" style="background-color: white; margin-top: 10px; width: 700px;">
+                <div class="row g-0" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px;">
+                    <div class="col">
+                        <a class="row" style="border: 1px solid lightgrey; height: 40px; width: fit-content;">
+                            <div class="col-3" style="border-right: 1px solid lightgrey; width: fit-content; max-width: 50px;">
+                                <img src="{{ asset('assets/site/img/Facebook.png') }}" style="width: 30px; height: 30px;">
+                            </div>
+                            <div class="col" style="margin-right: 10px;">S'identifier avec Facebook</div>
+                        </a>
+                    </div>
+                    <div class="col" style="padding-right:50px;">
+                        <a class="row" style="border: 1px solid lightgrey; height: 40px; width: fit-content;">
+                            <div class="col-3" style="border-right: 1px solid lightgrey; width: fit-content; max-width: 50px;">
+                                <img src="{{ asset('assets/site/img/google.png') }}" style="width: 30px; height: 30px;">
+                            </div>
+                            <div class="col" style="margin-right: 10px;">S'identifier avec Google</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 		</section>
+
 		<!--our-journey-area end-->
 </div>
