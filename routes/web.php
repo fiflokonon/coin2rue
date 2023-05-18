@@ -13,6 +13,9 @@ use App\Http\Livewire\Site\Formations\AllFormationComponent;
 use App\Http\Livewire\Site\Formations\OneFormationComponent;
 use App\Http\Livewire\Dashboard\Formations\AllDashFormationComponent;
 use App\Http\Livewire\Dashboard\Formations\EdithFormationComponent;
+use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
+use App\Http\Livewire\Dashboard\Moduless\AllDashModulesComponent;
+use App\Http\Livewire\Dashboard\Moduless\EditeModulesComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +42,10 @@ Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
 Route::get('/formation/{id}', EdithFormationComponent::class)->name('editformation');
+
+Route::get('/modules/{id}', AllDashModulesComponent::class)->name('dmodules');
+Route::get('/add-module', AddModulesComponent::class)->name('addmodule');
+Route::get('/module/{id}', EditeModulesComponent::class)->name('editmodule');
 
 
 // Route::middleware([

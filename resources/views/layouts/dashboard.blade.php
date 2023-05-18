@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 
 
-<!-- =========================================================
-* Vuexy - Bootstrap Admin Template | v9.0.0
-==============================================================
-
-* Product Page: https://1.envato.market/vuexy_admin
-* Created by: Pixinvent
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright Pixinvent (https://pixinvent.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
-
 <html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-default" data-assets-path="assets/dash/assets/" data-template="vertical-menu-template">
 
   <head>
@@ -25,10 +12,10 @@
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 5" />
     <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
     <!-- Canonical SEO -->
-    <link rel="canonical" href="https://1.envato.market/vuexy_admin">
+    {{-- <link rel="canonical" href="https://1.envato.market/vuexy_admin"> --}}
 
     <!-- Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
-    <script>
+    {{-- <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -43,9 +30,8 @@
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5J3LMKC');
-    </script>
+    </script> --}}
     <!-- End Google Tag Manager -->
-
     @include('livewire.dashboard.partials.style')
     @livewireStyles()
 </head>
@@ -54,7 +40,7 @@
 
 
   <!-- Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J3LMKC" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+  {{-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J3LMKC" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript> --}}
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- Layout wrapper -->
@@ -76,7 +62,7 @@
   <path fill-rule="evenodd" clip-rule="evenodd" d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z" fill="#7367F0" />
 </svg>
 </span>
-      <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+      <span class="app-brand-text demo menu-text fw-bold">COIN2RUE</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -93,7 +79,7 @@
 <!-- Navbar -->
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
 
-      <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
+      <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none ">
         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
           <i class="ti ti-menu-2 ti-sm"></i>
         </a>
@@ -155,8 +141,8 @@
   {{-- <div class="buy-now">
     <a href="https://1.envato.market/vuexy_admin" target="_blank" class="btn btn-danger btn-buy-now">Buy Now</a>
   </div> --}}
-  @livewireScripts()
-@include('livewire.dashboard.partials.script')
+    @livewireScripts()
+    @include('livewire.dashboard.partials.script')
 </body>
 
 </html>

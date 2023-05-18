@@ -14,7 +14,7 @@
 <!-- Vendors JS -->
 <script src="{{ asset('assets/dash/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 <script src="{{ asset('assets/dash/assets/vendor/libs/swiper/swiper.js') }}"></script>
-<script src="{{ asset('assets/dash/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+{{-- <script src="{{ asset('assets/dash/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script> --}}
 <!-- Main JS -->
 <script src="{{ asset('assets/dash/assets/js/main.js') }}"></script>
 

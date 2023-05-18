@@ -11,7 +11,7 @@ class EditeModulesComponent extends Component
 {
     public function render()
     {
-        return view('livewire.dashboard.moduless.edite-modules-component');
+        return view('livewire.dashboard.moduless.edite-modules-component')->layout('layouts.dashboard');
     }
 
     public function editModule(Request $request, $moduleId)

@@ -10,35 +10,17 @@ use Livewire\Component;
 
 class AddModulesComponent extends Component
 {
+    public $formation_id;
+    public function mount($id) {
+
+
+        $this->formation_id = $id;
+
+    }
     public function render()
     {
-        return view('livewire.dashboard.moduless.add-modules-component');
+
+        return view('livewire.dashboard.moduless.add-modules-component',[
+        ])->layout('layouts.dashboard');
     }
-
-    public function addModule(Request $request, $formationId)
-    {
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
-        $formation = Formation::find($formationId);
-        if (!$formation) {
-            return back()->withErrors(['message' => 'Formation non trouvée']);
-        }
-        $validatedData = $request->validate([
-            'titre' => 'required|string',
-            'description' => 'nullable|string',
-            'image_link' => 'nullable|string'
-        ]);
-        $module = new Module();
-        $module->titre = $validatedData['titre'];
-        $module->description = $validatedData['description'];
-        $module->image_link = $validatedData['image_link'];
-        $module->statut = true;
-        $module->created_by = \auth()->user()->id;
-        $module->formation_id = $formation->id;
-        $module->save();
-
-        return redirect('/');
-    }
-
 }
