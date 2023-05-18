@@ -11,7 +11,10 @@
     <!-- Multi Column with Form Separator -->
 <div class="card mb-4">
     <h5 class="card-header">Ajouter une formation</h5>
-    <form class="card-body">
+            @if (Session::has('message'))
+                <div class="alert alert-success">{{Session::get('message')}}</div>
+            @endif
+    <form class="card-body" wire:submit.prevent='saveFormation'>
       <div class="row g-3">
         <div class="col-md-6">
           <label class="form-label" for="">Titre</label>
@@ -45,7 +48,7 @@
       <div class="row g-3">
         <div class="col-md-12">
         <h5>Description</h5>
-            <div id="full-editor">
+            <div wire:ignore id="full-editor">
                 <h6>Quill Rich Text Editor</h6>
                 <p> Cupcake ipsum dolor sit amet. Halvah cheesecake chocolate bar gummi bears cupcake. Pie macaroon bear claw. Soufflé I love candy canes I love cotton candy I love. </p>
             </div>
@@ -54,12 +57,13 @@
       </div>
       <div class="pt-4">
         <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
-        <button type="reset" class="btn btn-label-secondary">Cancel</button>
+        <button wire:click.prevent='resetInputFields'  class="btn btn-label-secondary">Cancel</button>
       </div>
     </form>
   </div>
 </div>
 @section('scripts')
+
 <script src="{{ asset('assets/dash/assets/vendor/libs/cleavejs/cleave.js') }}"></script>
 <script src="{{ asset('assets/dash/assets/vendor/libs/cleavejs/cleave-phone.js') }}"></script>
 <script src="{{ asset('assets/dash/assets/vendor/libs/moment/moment.js') }}"></script>
@@ -76,5 +80,15 @@
 
   <!-- Page JS -->
   <script src="{{ asset('assets/dash/assets/js/form-layouts.js') }}"></script>
+
+  <script>
+    // var sd_data = $('#short_description').val();
+    $("#full-editor").on('change', function() {
+        // alert('Please select');
+    @this.description = $('#full-editor').val();
+    // @this.set('short_description', sd_data);
+
+});
+</script>
 
 @endsection

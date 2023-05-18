@@ -38,7 +38,7 @@ Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 
 Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
-Route::get('/edit-formation/{id}', EdithFormationComponent::class)->name('editformation');
+Route::get('/formation/{id}', EdithFormationComponent::class)->name('editformation');
 
 
 // Route::middleware([
