@@ -12,6 +12,7 @@ class Lecon extends Model
     protected $fillable = [
         'titre',
         'description',
+        'contenu',
         'image_link',
         'module_id',
         'user_id',

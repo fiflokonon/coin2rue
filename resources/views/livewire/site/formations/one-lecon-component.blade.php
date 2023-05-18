@@ -40,11 +40,9 @@
                             <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">MP4</a>
                             video.
                         </video>
-                        @foreach($lecon->paragraphes as $paragraphe)
-                            <p class="mb-55">
-                                {{ $paragraphe->contenu }}
-                            </p>
-                        @endforeach
+                        <p class="mt-15">
+                            {{ $lecon->contenu }}
+                        </p>
                     </div>
                     <div class="row">
                         <div class="col-6">

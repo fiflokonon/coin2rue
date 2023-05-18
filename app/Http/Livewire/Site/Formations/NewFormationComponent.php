@@ -15,7 +15,7 @@ class NewFormationComponent extends Component
     public function render()
     {
         $lecon = Lecon::find($this->lecon_id);
-        return view('livewire.site.formations.one-lecon-component',[
+        return view('livewire.site.formations.new-formation-component',[
             'lecon' => $lecon,
             'module' => $lecon->module
         ]);
