@@ -8,6 +8,6 @@ class AddFormationComponent extends Component
 {
     public function render()
     {
-        return view('livewire.dashboard.formations.add-formation-component');
+        return view('livewire.dashboard.formations.add-formation-component')->layout('layouts.dashboard');
     }
 }
