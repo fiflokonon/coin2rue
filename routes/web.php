@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Livewire\Site\Formations\ModulesComponent;
-use App\Http\Livewire\Site\Formations\OneLeconComponent;
-use App\Http\Livewire\Site\Formations\QuizComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Auth\LoginComponent;
 use App\Http\Livewire\Site\WelcomeComponent;
 use App\Http\Livewire\Auth\RegisterComponent;
 use App\Http\Livewire\Dashboard\DashboardComponent;
+use App\Http\Livewire\Site\Formations\QuizComponent;
+use App\Http\Livewire\Site\Formations\ModulesComponent;
+use App\Http\Livewire\Site\Formations\OneLeconComponent;
 use App\Http\Livewire\Site\Formations\AllFormationComponent;
 use App\Http\Livewire\Site\Formations\OneFormationComponent;
+use App\Http\Livewire\Dashboard\Formations\AllDashFormationComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::get('/lecons/{id}', OneLeconComponent::class)->name('onelecon');
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
+
+Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
+
 
 // Route::middleware([
 //     'auth:sanctum',
