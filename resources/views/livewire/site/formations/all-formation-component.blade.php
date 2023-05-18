@@ -26,6 +26,7 @@
                     <div class="col-md-12 text-center mb-100">
                         <h2>Les formations de <br>votre entreprise</h2>
                         <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores <br> nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>
+                        <a class="btn btn-info float-end" style="width: 150px;"><i class="fa fa-plus-circle"></i>Ajouter une formation</a>
                     </div>
 					@foreach($formation_actives as $formation)
                         @php

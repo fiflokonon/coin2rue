@@ -33,7 +33,6 @@ class DatabaseSeeder extends Seeder
             QuizSeeder::class,
             QuestionSeeder::class,
             ReponseSeeder::class,
-            ProgressionSeeder::class
         ]);
     }
 }

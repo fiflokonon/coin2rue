@@ -30,18 +30,16 @@
                         <h2 class="text-center text-light">{{ $lecon->titre }}</h2>
                     </div>
                     <div class="news-details-left mb-30">
-                        <video controls width="800">
+                        <video controls width="600">
                             <source src="https://www.youtube.com/watch?v=KvORw7pvpMs" type="video">
 
                             <source src="https://www.youtube.com/watch?v=KvORw7pvpMs" type="video/mp4">
-
                             Download the
                             <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">WEBM</a>
                             or
                             <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">MP4</a>
                             video.
                         </video>
-
                         @foreach($lecon->paragraphes as $paragraphe)
                             <p class="mb-55">
                                 {{ $paragraphe->contenu }}

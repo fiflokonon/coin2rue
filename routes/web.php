@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Site\Formations\ModulesComponent;
+use App\Http\Livewire\Site\Formations\NewFormationComponent;
 use App\Http\Livewire\Site\Formations\OneLeconComponent;
 use App\Http\Livewire\Site\Formations\QuizComponent;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::get('/', WelcomeComponent::class)->name('welcome');
 Route::get('/dashboard', DashboardComponent::class)->name('dashboard');
 Route::get('/all-formations', AllFormationComponent::class)->name('allformations');
 Route::get('/one-formations/{id}', OneFormationComponent::class)->name('oneformations');
+Route::get('/new-formation', NewFormationComponent::class)->name('newformation');
 Route::get('/modules/{id}/lecons', ModulesComponent::class)->name('lecons');
 Route::get('/lecons/{id}', OneLeconComponent::class)->name('onelecon');
 Route::get('/login', LoginComponent::class)->name('login');

@@ -70,7 +70,7 @@
                                 @if($progression)
                                     <a href="{{ route('lecons', ['id' => $module->id]) }}" class="btn btn-success">{{ $progression->pourcentage }} %</a>
                                 @else
-                                    <a href="{{ route('lecons', ['id' => $module->id]) }}" class="btn btn-secondary">0 %</a>
+                                    <a wire:click.prevent='startModule({{$module->id}})' class="btn btn-secondary">0 %</a>
                                 @endif
                             </div>
                         </div>
