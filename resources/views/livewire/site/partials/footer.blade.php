@@ -20,7 +20,7 @@
                         <li><a href="portfolio.html">Marketplace</a></li>
                         <li><a href="team.html">Événement</a></li>
                         <li><a href="case-details.html">Revendiquer son commerce</a></li>
-                        <li><a href="history.html">Affiliates</a></li>->
+                        <li><a href="history.html">Affiliates</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,13 +41,16 @@
                 <div class="footer__widget form-widget mb-30">
                     <p>Simplement pour vous informer des nouveautés et également lors de l'ouverture de nouvelles villes</p>
                     <form>
-                        <div class="input-group rounded">
-                            <input type="text" class="form-control rounded-left" placeholder="Adresse Mail">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary rounded-right" type="button">Envoyer</button>
-                            </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Adresse Mail" style="border-radius: 20px;">
+                            <button class="btn btn-primary" type="button" style="border-radius: 20px; position: relative; right: 30px;" >Envoyer</button>
                         </div>
                     </form>
+                </div>
+                <div class="row g-0 float-lg-start">
+                    <img src="{{ asset('assets/site/img/face.avif') }}" class="img-fluid" alt="Image 1" style="width: 50px; height: 50px; padding: 5px;">
+                    <img src="{{ asset('assets/site/img/twiter.png') }}" class="img-fluid" alt="Image 2" style="width: 50px; height: 50px; padding: 5px; ">
+                    <img src="{{ asset('assets/site/img/google-plus.png') }}" class="img-fluid" alt="Image 3" style="width: 50px; height: 50px; padding: 5px;">
                 </div>
             </div>
         </div>
@@ -55,7 +58,7 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 text-center" >
                     <div class="copyright">
-                        <h6>Copyright ©2022 Waretech. Designed & Developed
+                        <h6 style="color: white">Copyright ©2022 Waretech. Designed & Developed
                             by Reacthemes</h6>
                     </div>
                 </div>

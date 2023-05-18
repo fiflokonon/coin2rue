@@ -10,9 +10,9 @@
 						<div class="page-title-wrapper text-start" style="margin-top: 120px;">
 							<ul class="breadcrumb list-none justify-content-start lh-1">
 								<li><a href="{{ route('welcome') }}">ACCUEIL</a></li>
-								<li class="active text-white fw-bold" aria-current="page">Inscription</li>
+								<li class="active text-white fw-bold" aria-current="page">Formations</li>
 							</ul>
-							<h2 class="page-title text-white" style="font-size: 24px; margin-top: 15px;">Créer un compte</h2>
+							<h2 class="page-title text-white" style="font-size: 24px; margin-top: 15px;">Créer une formation</h2>
 						</div>
 					</div>
 				</div>
@@ -25,48 +25,33 @@
 				<div class="row justify-content-center">
 					<div class="col-lg-5 pb-20" style="background-color:#FFFFFF;">
 						<div class="section-title mb-60 pb-40 text-center" style="border-bottom: solid 2px rgb(125, 125, 125)">
-                            <h2 class="sect-title lh-1 mt-50 mb-50">Créer un compte</h2>
+                            <h2 class="sect-title lh-1 mt-50 mb-50">Créer une formation</h2>
 							<p class="fs-14 lh-1 mb-15">Lorem ipsum dolor sit amet nunca dolor sit amet lorem ipsum dolor sit amet nunca deso et</p>
 						</div>
 						<form class="row contact-form mb-30" method="POST" action="{{ route('register') }}">
                             @csrf
 							<div class="col-lg-12 col-md-12">
 								<div class="input-box mail-input mb-20">
-                                    <label for="" class="mb-15" style="font-size: 15px"> Nom</label>
-                                    <input type="text" required="" class="" name="name" placeholder="Entrer votre nom" value="{{old('name')}}" required autofocus autocomplete="name">
+                                    <label for="" class="mb-15" style="font-size: 15px"> Titre de la formation</label>
+                                    <input type="text" required="" class="" name="name" placeholder="Titre de la formation" value="{{old('name')}}" required autofocus autocomplete="name">
 								</div>
 							</div>
                             <div class="col-lg-12 col-md-12">
 								<div class="input-box mail-input mb-20">
-                                    <label for="" class="mb-20" style="font-size: 15px"> Prénoms</label>
-                                    <input type="text" required="" class="" name="name" placeholder="Entrer votre nom" value="{{old('prenoms')}}" required autofocus autocomplete="prenoms">
+                                    <label for="" class="mb-20" style="font-size: 15px"> Description de la formation:</label>
+                                    <input type="textarea" required="" class="" name="description" placeholder="Description de la formation" value="{{old('prenoms')}}" required autofocus autocomplete="prenoms">
 								</div>
 							</div>
-                            <div class="col-lg-12 col-md-12">
-								<div class="input-box mail-input mb-20">
-                                    <label for="" class="mb-20" style="font-size: 15px"> Adresse Mail</label>
 
-                                    <input type="text" required="" class="" name="email" placeholder="Votre Email" :value="old('email')" required autofocus >
-								</div>
-							</div>
                             <div class="col-lg-12 col-md-12">
 								<div class="input-box mb-20">
-                                    <label for="" class="mb-20" style="font-size: 15px"> Mot De Passe</label>
-
-                                    <input class="" required="" type="password" name="password" placeholder="mot de passe" required autocomplete="new-password">
-
-								</div>
-							</div>
-                            <div class="col-lg-12 col-md-12">
-								<div class="input-box mb-20">
-                                    <label for="" class="mb-20" style="font-size: 15px">Confirmation Mot De Passe</label>
-
-                                <input class="" required="" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
+                                    <label for="" class="mb-20" style="font-size: 15px">Durée de la formation</label>
+                                <input class="" required="" type="number" name="duree" placeholder="Durée de la formation" required>
 								</div>
 							</div>
 
 							<div class="col-12 mt-15">
-								<button type="submit" class="btn px-4 py-2 rounded-pill text-light" style="background-color: #FB9C2C">Inscription</button>
+								<button type="submit" class="btn px-4 py-2 rounded-pill text-light" style="background-color: #FB9C2C">Enregistrer</button>
 							</div>
 						</form>
                         <div class="col-12 ml-10">

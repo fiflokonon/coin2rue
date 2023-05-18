@@ -3,16 +3,16 @@
 @endsection
 <div>
     <!--page-title-area start-->
-		<section class="page-title-area title-area2" style="background-image: url(assets/site/img/page-title/page-title-bg2.jpg);">
+		<section class="" style="background-color: #FB9C2C!important; height: 200px!important;">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-12">
-						<div class="page-title-wrapper text-start">
+						<div class="page-title-wrapper text-start" style="margin-top: 120px;">
 							<ul class="breadcrumb list-none justify-content-start lh-1">
 								<li><a href="index.html">ACCUEIL</a></li>
 								<li class="active text-white fw-bold" aria-current="page">Formations</li>
 							</ul>
-							<h2 class="page-title text-white">Formations</h2>
+							<h2 class="page-title text-white" style="font-size: 24px; margin-top: 15px;">Les Formations</h2>
 						</div>
 					</div>
 				</div>
@@ -26,6 +26,7 @@
                     <div class="col-md-12 text-center mb-100">
                         <h2>Les formations de <br>votre entreprise</h2>
                         <p>Laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores <br> nemis omnis fugats. Lid est laborum dolo rumes fugats untras.</p>
+                        <a class="btn btn-info float-end" style="width: 150px;"><i class="fa fa-plus-circle"></i>Ajouter une formation</a>
                     </div>
 					@foreach($formation_actives as $formation)
                         @php

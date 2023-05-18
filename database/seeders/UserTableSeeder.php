@@ -17,7 +17,8 @@ class UserTableSeeder extends Seeder
 
             [
                 'id' =>1,
-                'name' => 'Arnaud Lokonon',
+                'nom' => 'LOKONON',
+                'prenoms' => 'Arnaud',
                 'email' => 'fiflokonon@gmail.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'isDelete' => 0,
@@ -25,21 +26,24 @@ class UserTableSeeder extends Seeder
 
             [
                 'id' =>2,
-                'name' => 'LOKO aristofane smith',
+                'nom' => 'LOKO',
+                'prenoms' => 'Aristofane Smith',
                 'email' => 'aristofanesmithloko@gmail.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'isDelete' => 0,
             ],
             [
                 'id' =>3,
-                'name' => 'DOUMEFIO Anne',
+                'nom' => 'DOUMEFIO',
+                'prenoms' => 'Anne',
                 'email' => 'doumefio@gmail.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'isDelete' => 0,
             ],
             [
                 'id' =>4,
-                'name' => 'ALISSOU Fernando',
+                'nom' => 'ALISSOU',
+                'prenoms' => 'Fernando',
                 'email' => 'alissouanani@gmail.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'isDelete' => 0,

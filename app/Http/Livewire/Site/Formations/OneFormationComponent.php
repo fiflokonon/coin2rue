@@ -40,6 +40,7 @@ class OneFormationComponent extends Component
                     $progression->progressionable_type = 'App\Models\Module';
                     $progression->pourcentage = 0;
                     $progression->save();
+                    return redirect()->route('lecons', ['id' => $module->id]);
                 }
             }
         }

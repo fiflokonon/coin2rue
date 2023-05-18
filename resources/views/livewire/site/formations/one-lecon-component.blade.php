@@ -3,16 +3,17 @@
 @endsection
 <div>
     <!--page-title-area start-->
-    <section class="page-title-area title-area2" style="background-image: url(assets/site/img/page-title/page-title-bg2.jpg);">
+    <section class="" style="background-color: #FB9C2C!important; height: 200px!important;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
-                    <div class="page-title-wrapper text-start">
+                    <div class="page-title-wrapper text-start" style="margin-top: 80px;">
                         <ul class="breadcrumb list-none justify-content-start lh-1">
                             <li><a href="index.html">ACCUEIL</a></li>
                             <li class="active text-white fw-bold" aria-current="page">Formations</li>
                         </ul>
-                        <h2 class="page-title text-white">Formations</h2>
+                        <h2 class="page-title text-white" style="font-size: 24px; margin-top: 15px;">Les Formations</h2>
+                        <h3 class="page-title" style="font-size: 24px; margin-top: 15px; color: #0c2168; ">{{ $lecon->titre }}</h3>
                     </div>
                 </div>
             </div>
@@ -29,23 +30,19 @@
                         <h2 class="text-center text-light">{{ $lecon->titre }}</h2>
                     </div>
                     <div class="news-details-left mb-30">
-                        <video controls width="800">
+                        <video controls width="600">
                             <source src="https://www.youtube.com/watch?v=KvORw7pvpMs" type="video">
 
                             <source src="https://www.youtube.com/watch?v=KvORw7pvpMs" type="video/mp4">
-
                             Download the
                             <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">WEBM</a>
                             or
                             <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">MP4</a>
                             video.
                         </video>
-
-                        @foreach($lecon->paragraphes as $paragraphe)
-                            <p class="mb-55">
-                                {{ $paragraphe->contenu }}
-                            </p>
-                        @endforeach
+                        <p class="mt-15">
+                            {{ $lecon->contenu }}
+                        </p>
                     </div>
                     <div class="row">
                         <div class="col-6">

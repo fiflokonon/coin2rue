@@ -3,16 +3,16 @@
 @endsection
 <div>
     <!--page-title-area start-->
-		<section class="page-title-area title-area2" style="background-image: url(assets/site/img/page-title/page-title-bg2.jpg);">
+		<section class="" style="background-color: #FB9C2C!important; height: 200px!important;">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-lg-12">
-						<div class="page-title-wrapper text-start">
+						<div class="page-title-wrapper text-start" style="margin-top: 120px;">
 							<ul class="breadcrumb list-none justify-content-start lh-1">
 								<li><a href="index.html">ACCUEIL</a></li>
 								<li class="active text-white fw-bold" aria-current="page">Formations</li>
 							</ul>
-							<h2 class="page-title text-white">Formations</h2>
+                            <h2 class="page-title text-white" style="font-size: 24px; margin-top: 15px;">Les Formations</h2>
 						</div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@
                                 @if($progression)
                                     <a href="{{ route('lecons', ['id' => $module->id]) }}" class="btn btn-success">{{ $progression->pourcentage }} %</a>
                                 @else
-                                    <a href="{{ route('lecons', ['id' => $module->id]) }}" class="btn btn-secondary">0 %</a>
+                                    <a wire:click.prevent='startModule({{$module->id}})' class="btn btn-secondary">0 %</a>
                                 @endif
                             </div>
                         </div>

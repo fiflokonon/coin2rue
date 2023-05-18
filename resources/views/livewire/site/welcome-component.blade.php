@@ -36,25 +36,39 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="">CONTACT</a>
                                     </li>
+                                    <li class="right-nav mb-0 d-flex align-items-center justify-content-end">
+                                        @if (Auth::guest())
+
+                                            <a href="{{route('login')}}" class="btn btn-warning px-5 rounded-pill text-white">
+                                                INSCRIPTIONS
+                                            </a>
+                                        @else
+                                            <div class="d-line">
+                                                <img src="{{ asset('assets/site/img/profil.png') }}" alt="">
+
+                                                <span class="ml-5" style="font-size: 20px"> ToysRus Lyon</span>
+                                            </div>
+                                        @endif
+                                    </li>
                                 </ul>
                             </nav>
 
-                            <ul class="right-nav mb-0 d-flex align-items-center justify-content-end">
+                            <!--<ul class="right-nav mb-0 d-flex align-items-center justify-content-end">
                                 <li>
                                     @if (Auth::guest())
 
-                                    <a href="{{route('login')}}" class="btn btn-warning px-5 rounded-pill text-white">
-                                        INSCRIPTIONS
-                                    </a>
+                                        <a href="{{route('login')}}" class="btn btn-warning px-5 rounded-pill text-white">
+                                            INSCRIPTIONS
+                                        </a>
                                     @else
-                                    <div class="d-line">
-                                        <img src="{{ asset('assets/site/img/profil.png') }}" alt="">
+                                        <div class="d-line">
+                                            <img src="{{ asset('assets/site/img/profil.png') }}" alt="">
 
-                                        <span class="ml-5" style="font-size: 20px"> ToysRus Lyon</span>
-                                    </div>
+                                            <span class="ml-5" style="font-size: 20px"> ToysRus Lyon</span>
+                                        </div>
                                     @endif
                                 </li>
-                            </ul>
+                            </ul>-->
                         </div>
                     </div>
                 </div>
