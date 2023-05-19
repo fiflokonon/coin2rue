@@ -4,11 +4,14 @@ namespace App\Http\Livewire\Site\Formations;
 
 use App\Models\Lecon;
 use App\Models\Quiz;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class QuizComponent extends Component
 {
     public $quiz_id;
+    public $pourcentage;
+    public $reponsesUtilisateur = [];
     public function mount($id)
     {
         $this->quiz_id = $id;
@@ -16,27 +19,40 @@ class QuizComponent extends Component
     public function render()
     {
         $quiz = Quiz::find($this->quiz_id);
-        return view('livewire.site.formations.quiz-component',[
+        $pourcentage = $this->pourcentage;
+
+        return view('livewire.site.formations.quiz-component', [
             'quiz' => $quiz,
-            'lecon' => $quiz->lecon
+            'lecon' => $quiz->lecon,
+            'pourcentage' => $pourcentage
         ]);
     }
 
-    public $reponsesUtilisateur = [];
-    public $pourcentage = 0;
 
     public function correction()
     {
-        // Effectuez ici la logique de correction et de calcul du pourcentage
-        // en utilisant les données stockées dans $this->reponsesUtilisateur
-        // et mettez à jour la valeur de $this->pourcentage
-
-        // Exemple :
+        $quiz = Quiz::find($this->quiz_id);
         $totalQuestions = $quiz->questions->count();
         $totalCorrectes = 0;
-
-        // ...
-
+        #dd($this->reponsesUtilisateur);
+        foreach ($quiz->questions as $question) {
+            $reponseCorrecte = $question->reponses->where('juste', true)->pluck('id')->toArray();
+            if (isset($this->reponsesUtilisateur[$question->id])) {
+                if ($question->one_answer) {
+                    $reponseDonnee = $this->reponsesUtilisateur[$question->id];
+                    if (in_array($reponseDonnee, $reponseCorrecte)) {
+                        $totalCorrectes++;
+                    }
+                } elseif ($question->multiple_answer) {
+                    $reponsesDonnees = array_keys($this->reponsesUtilisateur[$question->id], true);
+                    if (count($reponseCorrecte) === count($reponsesDonnees) && empty(array_diff($reponseCorrecte, $reponsesDonnees))) {
+                        $totalCorrectes++;
+                    }
+                }
+            }
+        }
         $this->pourcentage = ($totalCorrectes / $totalQuestions) * 100;
+        return $this->render();
     }
+
 }

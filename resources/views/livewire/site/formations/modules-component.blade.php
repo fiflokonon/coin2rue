@@ -42,9 +42,7 @@
                                 <button type="button" class="btn btn-light">Light</button>
                                 <button type="button" class="btn btn-light">Light</button>
                                 <button type="button" class="btn btn-light">Light</button>
-
                             </div>
-
                         </div>
                         <div class="" style="border-bottom: solid 3px rgb(125, 125, 125)">
                             <h4 class="text-primary mb-2 "><i class="fa fa-book-medical text-primary"></i> Leçons</h4>
@@ -72,14 +70,11 @@
 
                                             </div>
                                             <div class="col-md-3" style="border-right: solid 1px rgb(125, 125, 125)">
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
 
 					</div>

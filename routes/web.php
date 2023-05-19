@@ -36,6 +36,7 @@ Route::get('/lecons/{id}', OneLeconComponent::class)->name('onelecon');
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
+Route::post('/correction', [QuizComponent::class, 'correction'])->name('correction');
 
 Route::get('/formations', AllDashFormationComponent::class)->name('formations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
