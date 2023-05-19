@@ -39,7 +39,7 @@
                         <div class="card p-3" style="border-radius:5%" >
                           <div class="card-body">
                             <h3 class="card-title mb-3">{{ $formation->titre }}</h3>
-                            <p class="card-text">{{ $formation->description }}</p>
+                            <p class="card-text">{!! $formation->description !!}</p>
                             <hr style="width: 10px;">
                             <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>-->
                             <div class="row">
@@ -65,7 +65,7 @@
                         <div class="card p-3" style="border-radius:5%" >
                           <div class="card-body">
                             <h3 class="card-title mb-3">{{ $formation->titre }}</h3>
-                            <p class="card-text">{{ $formation->description }}</p>
+                            <p class="card-text">{!! $formation->description !!}</p>
                             <hr>
                             <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.This is a wider card with supporting text below as a natural lead-in to additional  This content is a little bit longer.</p>-->
                               <div class="row">

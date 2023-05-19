@@ -14,7 +14,7 @@
             @if (Session::has('message'))
                 <div class="alert alert-success">{{Session::get('message')}}</div>
             @endif
-    <form class="card-body" wire:submit.prevent='saveFormation'>
+    <form class="card-body" wire:submit.prevent='saveFormation' id="formulaire">
       <div class="row g-3">
         <div class="col-md-6">
           <label class="form-label" for="">Titre</label>
@@ -46,14 +46,9 @@
       </div>
       <hr class="my-4 mx-n4" />
       <div class="row g-3">
-        <div class="col-md-12">
-        <h5>Description</h5>
-            <div wire:ignore id="full-editor">
-                <h6>Quill Rich Text Editor</h6>
-                <p> Cupcake ipsum dolor sit amet. Halvah cheesecake chocolate bar gummi bears cupcake. Pie macaroon bear claw. Soufflé I love candy canes I love cotton candy I love. </p>
-            </div>
+        <div class="col-md-12" wire:ignore>
+            <label for="full-editor"><h5>Description</h5></label><textarea id="content" name="contenu" ></textarea>
         </div>
-
       </div>
       <div class="pt-4">
         <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
@@ -70,7 +65,7 @@
 <script src="{{ asset('assets/dash/assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
 <script src="{{ asset('assets/dash/assets/vendor/libs/select2/select2.js') }}"></script>
 <script src="{{ asset('assets/dash/assets/vendor/libs/quill/katex.js') }}"></script>
-<script src="{{ asset('assets/dash/assets/vendor/libs/quill/quill.js') }}"></script>
+<!--<script src="{{ asset('assets/dash/assets/vendor/libs/quill/quill.js') }}"></script>-->
 
   <!-- Page JS -->
   <script src="{{ asset('assets/dash/assets/js/forms-editors.js') }}"></script>
@@ -81,7 +76,7 @@
   <!-- Page JS -->
   <script src="{{ asset('assets/dash/assets/js/form-layouts.js') }}"></script>
 
-  <script>
+  <!--<script>
     // var sd_data = $('#short_description').val();
     $("#full-editor").on('change', function() {
         // alert('Please select');
@@ -89,6 +84,47 @@
     // @this.set('short_description', sd_data);
 
 });
+</script>-->
+<script src="https://cdn.tiny.cloud/1/ham41k2pezublgag1vvdmdsyeehbd095atam2gfndyjoucg0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        height: 300,
+        plugins: 'autolink lists link image charmap print preview',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+        menubar: false,
+        branding: false
+    });
+
+    // Récupérer le contenu de TinyMCE lorsque vous en avez besoin
+    var form = document.querySelector('#formulaire');
+    form.addEventListener('submit', function() {
+        var content = tinymce.activeEditor.getContent();
+        console.log(content);
+        @this.description = content;
+        document.querySelector('#content').value = content;
+    });
 </script>
+
+<!--<script>
+    var quill = new Quill('#full-editor', {
+        theme: 'snow',
+        clipboard: {
+            matchVisual: false
+        }
+    });
+
+    // Récupérer le contenu de Quill lorsque vous en avez besoin
+    var form = document.querySelector('#formulaire');
+    form.addEventListener('submit', function() {
+        var content = quill.getText();
+        // Faites quelque chose avec le contenu...
+
+        document.querySelector('#full-editor').value = content;
+        console.log(content);
+    });
+</script>-->
+
+
 
 @endsection

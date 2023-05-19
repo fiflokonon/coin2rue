@@ -29,6 +29,12 @@
                     <div style="width: 100%; height: 50px; background-color: #0c2168">
                         <h2 class="text-center text-light">{{ $quiz->titre }}</h2>
                     </div>
+                    <form action="{{ route('correction') }}" method="POST">
+                        @csrf
+                        <!-- Vos questions et réponses ici -->
+                        ...
+                        <button type="submit" class="btn btn-primary mr-20">Correction <i class="fa fa-check-circle"></i></button>
+                    </form>
                     <div class="news-details-left mb-30">
                         @foreach($quiz->questions as $question)
                             <div class="mb-20">

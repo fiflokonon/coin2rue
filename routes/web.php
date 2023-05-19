@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Auth\LoginComponent;
 use App\Http\Livewire\Site\WelcomeComponent;
@@ -36,7 +37,7 @@ Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 
-Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
+Route::get('/formations', AllDashFormationComponent::class)->name('formations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
 Route::get('/formation/{id}', EdithFormationComponent::class)->name('editformation');
 
