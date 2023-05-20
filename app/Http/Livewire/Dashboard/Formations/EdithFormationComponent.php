@@ -3,14 +3,12 @@
 namespace App\Http\Livewire\Dashboard\Formations;
 
 use App\Models\Formation;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+
 
 class EdithFormationComponent extends Component
 {
-
-
     public $titre;
     public $prix;
     public $image;
@@ -18,8 +16,6 @@ class EdithFormationComponent extends Component
     public $duree;
     public $user_id;
     public $formation_id;
-
-
 
     public function resetInputFields()
     {
@@ -63,7 +59,6 @@ class EdithFormationComponent extends Component
         $formation->duree = $this->duree;
         $formation->description = $this->description;
         $formation->save();
-
 
        session()->flash('message', 'Modification effectué avec succès.');
        $this->resetInputFields();

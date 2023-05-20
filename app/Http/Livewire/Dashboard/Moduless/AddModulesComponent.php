@@ -10,35 +10,51 @@ use Livewire\Component;
 
 class AddModulesComponent extends Component
 {
-    public function render()
+    public $titre;
+    public $image_link;
+    public $description;
+    public $formation_id;
+
+    public function resetInputFields()
     {
-        return view('livewire.dashboard.moduless.add-modules-component');
+        // Clean errors if were visible before
+        $this->resetErrorBag();
+        $this->resetValidation();
+        $this->reset(['titre', 'image_link', 'formation_id','description']);
+
+    }
+    public function mount($id) {
+        $this->formation_id = $id;
     }
 
-    public function addModule(Request $request, $formationId)
+    public function saveModule()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
-        $formation = Formation::find($formationId);
-        if (!$formation) {
-            return back()->withErrors(['message' => 'Formation non trouvée']);
-        }
-        $validatedData = $request->validate([
-            'titre' => 'required|string',
-            'description' => 'nullable|string',
-            'image_link' => 'nullable|string'
-        ]);
+            $this->validate([
+                'titre' =>  'required',
+                // 'image_link' =>  'required',
+                'formation_id' =>  'required',
+                // 'image' =>  'required',
+                // 'description' => 'required',
+            ]);
+
+            // dd($this->description);
+
         $module = new Module();
-        $module->titre = $validatedData['titre'];
-        $module->description = $validatedData['description'];
-        $module->image_link = $validatedData['image_link'];
-        $module->statut = true;
-        $module->created_by = \auth()->user()->id;
-        $module->formation_id = $formation->id;
+
+        $module->created_by = Auth::user()->id;
+        $module->titre = $this->titre;
+        $module->image_link = $this->image_link;
+        $module->formation_id = $this->formation_id;
+        $module->description = $this->description;
         $module->save();
 
-        return redirect('/');
+       session()->flash('message', 'Enregistrement effectué avec succès.');
+       $this->resetInputFields();
     }
+    public function render()
+    {
 
+        return view('livewire.dashboard.moduless.add-modules-component',[
+        ])->layout('layouts.dashboard');
+    }
 }
