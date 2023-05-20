@@ -29,39 +29,65 @@
                     <div style="width: 100%; height: 50px; background-color: #0c2168">
                         <h2 class="text-center text-light">{{ $quiz->titre }}</h2>
                     </div>
-                    <div class="news-details-left mb-30">
-                        @foreach($quiz->questions as $question)
-                            <div class="mb-20">
-                                <p class="mb-10"><b>{{ $question->question }}</b></p>
-                                @if($question->true_or_false)
-                                    <ul>
-                                        <li><input type="radio" name="quest"> Oui</li>
-                                        <li><input type="radio" name="quest"> Non</li>
-                                    </ul>
-                                @elseif($question->one_answer)
-                                    <ul>
-                                        @foreach($question->reponses as $reponse)
-                                            <li><input type="radio" name="quest"> {{ $reponse->reponse }}</li>
-                                        @endforeach
-                                    </ul>
-                                @elseif($question->multiple_answer)
-                                    <ul>
-                                        @foreach($question->reponses as $reponse)
-                                            <li><input type="checkbox" name="check"> {{ $reponse->reponse }}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="btn-list2 list-none d-sm-flex align-items-center justify-content-center">
-                                <li><a href="#" class="btn btn-primary mr-20">Correction <i class="fa fa-check-circle"></i></a></li>
-                                <li><a href="#" class="btn btn-primary">Recommencer <i class="fas fa-sync-alt"></i></a></li>
-                            </ul>
+                    <form wire:submit.prevent="correction">
+                        <div class="news-details-left mb-30">
+                            @foreach($quiz->questions as $question)
+                                <div class="mb-20">
+                                    <p class="mb-10"><b>{{ $question->question }}</b></p>
+                                    @if($question->true_or_false)
+                                        <ul wire:ignore>
+                                            <li><input type="radio" name="quest{{$question->id}}"> Oui</li>
+                                            <li><input type="radio" name="quest{{$question->id}}"> Non</li>
+                                        </ul>
+                                    @elseif($question->one_answer)
+                                        <ul>
+                                            @foreach($question->reponses as $reponse)
+                                                <li>
+                                                    <input type="radio" name="quest{{$question->id}}" wire:model="reponsesUtilisateur.{{ $question->id }}" value="{{ $reponse->id }}">
+                                                    {{ $reponse->reponse }} {{ $reponse->juste }}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @elseif($question->multiple_answer)
+                                        <ul>
+                                            @foreach($question->reponses as $reponse)
+                                                <li>
+                                                    <input type="checkbox" name="check{{$question->id}}" wire:model="reponsesUtilisateur.{{$question->id}}.{{ $reponse->id }}" id="reponse_{{ $reponse->id }}"
+                                                           value="{{ $reponse->id }}" >
+                                                    {{ $reponse->reponse }} {{ $reponse->juste }}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </div>
+                            @endforeach
                         </div>
-                    </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <ul class="btn-list2 list-none d-sm-flex align-items-center justify-content-center">
+                                    <li><button type="submit" href="#" class="btn btn-primary mr-20">Correction <i class="fa fa-check-circle"></i></button></li>
+                                    <li><button href="#" class="btn btn-primary">Recommencer <i class="fas fa-sync-alt"></i></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                    @if ($pourcentage !== null)
+                        @if($pourcentage > $quiz->pass_mark)
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="alert-success">Quiz réussi</div>
+                                    <h4 class="bg-success text-light">Score: {{ $pourcentage }}%</h4>
+                                </div>
+                            </div>
+                        @else
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="alert-danger">Quiz non réussi</div>
+                                    <h4 class="bg-danger text-light">Score: {{ $pourcentage }}%</h4>
+                                </div>
+                            </div>
+                        @endif
+                    @endif
                 </div>
                 <div class="col-lg-4 pl-30 pl-lg-15 pl-md-15 pl-xs-15">
                     <div class="news-right-widget">

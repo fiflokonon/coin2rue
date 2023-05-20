@@ -1,8 +1,7 @@
 <div>
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Dashboard /</span> Formations
+        <span class="text-muted fw-light">Dashboard /</span> Formations /</span> Modules /</span> Leçons
       </h4>
-
       <!-- Basic Bootstrap Table -->
       <div class="card">
         <div class="p-3">

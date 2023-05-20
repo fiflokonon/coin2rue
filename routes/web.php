@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Auth\LoginComponent;
 use App\Http\Livewire\Site\WelcomeComponent;
@@ -16,7 +17,7 @@ use App\Http\Livewire\Dashboard\Formations\EdithFormationComponent;
 use App\Http\Livewire\Dashboard\Lecons\AddLeconsComponent;
 use App\Http\Livewire\Dashboard\Lecons\AllLeconsComponent;
 use App\Http\Livewire\Dashboard\Lecons\EditeLeconsComponent;
-use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
+// use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\AllDashModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\EditeModulesComponent;
 
@@ -41,8 +42,9 @@ Route::get('/lecons/{id}', OneLeconComponent::class)->name('onelecon');
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
+Route::post('/correction', [QuizComponent::class, 'correction'])->name('correction');
 
-Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
+Route::get('/formations', AllDashFormationComponent::class)->name('formations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
 Route::get('/edit-formation/{id}', EdithFormationComponent::class)->name('editformation');
 

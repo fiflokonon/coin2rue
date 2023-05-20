@@ -21,4 +21,22 @@ class QuizComponent extends Component
             'lecon' => $quiz->lecon
         ]);
     }
+
+    public $reponsesUtilisateur = [];
+    public $pourcentage = 0;
+
+    public function correction()
+    {
+        // Effectuez ici la logique de correction et de calcul du pourcentage
+        // en utilisant les données stockées dans $this->reponsesUtilisateur
+        // et mettez à jour la valeur de $this->pourcentage
+
+        // Exemple :
+        $totalQuestions = $quiz->questions->count();
+        $totalCorrectes = 0;
+
+        // ...
+
+        $this->pourcentage = ($totalCorrectes / $totalQuestions) * 100;
+    }
 }

@@ -1,12 +1,12 @@
 <div>
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Dashboard /</span> Formations
+        <span class="text-muted fw-light">Dashboard /</span> Formations /</span>Modules
       </h4>
 
       <!-- Basic Bootstrap Table -->
       <div class="card">
         <div class="p-3">
-            <h5 class="card-header d-inline">Formations</h5>
+            <h5 class="card-header d-inline">Modules</h5>
             <a href="{{ route('addmodule',['id' => $this->formation_id]) }}" class="btn btn-primary float-end d-inline">Ajouter</a>
         </div>
 

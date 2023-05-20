@@ -16,8 +16,10 @@ class OneLeconComponent extends Component
     public function render()
     {
         $lecon = Lecon::find($this->lecon_id);
+        $module = Module::find($lecon->module_id);
         return view('livewire.site.formations.one-lecon-component',[
             'lecon' => $lecon,
+            'lecons' => $module->lecons,
             'module' => $lecon->module
         ]);
     }
