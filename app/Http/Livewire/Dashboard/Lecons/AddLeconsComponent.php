@@ -10,38 +10,52 @@ use Livewire\Component;
 
 class AddLeconsComponent extends Component
 {
-    public function render()
+    public $titre;
+    public $image_link;
+    public $contenu = "mon texte";
+    public $description;
+    public $module_id;
+
+    public function resetInputFields()
     {
-        return view('livewire.dashboard.lecons.add-lecons-component');
+        // Clean errors if were visible before
+        $this->resetErrorBag();
+        $this->resetValidation();
+        $this->reset(['titre', 'image_link','contenu', 'module_id','description']);
+
+    }
+    public function mount($id) {
+        $this->module_id = $id;
     }
 
-    public function addLecon(Request $request, $moduleId)
+    public function saveLecon()
     {
-        if (!Auth::check()) {
-            return redirect('/login');
-        }
-        $module = Module::find($moduleId);
-        if (!$module) {
-            return back()->withErrors(['message' => 'Module non trouvé']);
-        }
-        // Valider les données de la requête
-        $validatedData = $request->validate([
-            'titre' => 'required|string',
-            'description' => 'nullable|string',
-            'contenu' => 'required|text',
-            'image_link' => 'required|string',
-        ]);
+            $this->validate([
+                'titre' =>  'required',
+                // 'image_link' =>  'required',
+                'module_id' =>  'required',
+                // 'image' =>  'required',
+                // 'description' => 'required',
+            ]);
+
+            // dd($this->description);
+
         $lecon = new Lecon();
-        $lecon->titre = $validatedData['titre'];
-        $lecon->description = $validatedData['description'];
-        $lecon->contenu = $validatedData['contenu'];
-        $lecon->image_link = $validatedData['image_link'];
-        $lecon->module_id = $moduleId;
-        $lecon->user_id = \auth()->user()->id;
-        $lecon->statut = true;
+
+        $lecon->user_id = Auth::user()->id;
+        $lecon->titre = $this->titre;
+        $lecon->image_link = $this->image_link;
+        $lecon->contenu = $this->contenu;
+        $lecon->module_id = $this->module_id;
+        $lecon->description = $this->description;
         $lecon->save();
 
-        return redirect('/');
+       session()->flash('message', 'Enregistrement effectué avec succès.');
+       $this->resetInputFields();
     }
 
+    public function render()
+    {
+        return view('livewire.dashboard.lecons.add-lecons-component')->layout('layouts.dashboard');
+    }
 }

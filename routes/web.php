@@ -13,6 +13,9 @@ use App\Http\Livewire\Site\Formations\AllFormationComponent;
 use App\Http\Livewire\Site\Formations\OneFormationComponent;
 use App\Http\Livewire\Dashboard\Formations\AllDashFormationComponent;
 use App\Http\Livewire\Dashboard\Formations\EdithFormationComponent;
+use App\Http\Livewire\Dashboard\Lecons\AddLeconsComponent;
+use App\Http\Livewire\Dashboard\Lecons\AllLeconsComponent;
+use App\Http\Livewire\Dashboard\Lecons\EditeLeconsComponent;
 use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\AllDashModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\EditeModulesComponent;
@@ -41,11 +44,15 @@ Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 
 Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
-Route::get('/formation/{id}', EdithFormationComponent::class)->name('editformation');
+Route::get('/edit-formation/{id}', EdithFormationComponent::class)->name('editformation');
 
 Route::get('/modules/{id}', AllDashModulesComponent::class)->name('dmodules');
-Route::get('/add-module', AddModulesComponent::class)->name('addmodule');
+Route::get('/add-module/{id}', AddModulesComponent::class)->name('addmodule');
 Route::get('/module/{id}', EditeModulesComponent::class)->name('editmodule');
+
+Route::get('/lecons/{id}', AllLeconsComponent::class)->name('dlecons');
+Route::get('/add-lecon/{id}', AddLeconsComponent::class)->name('addlecon');
+Route::get('/lecon/{id}', EditeLeconsComponent::class)->name('editlecon');
 
 
 // Route::middleware([

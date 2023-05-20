@@ -12,15 +12,12 @@ class AllDashModulesComponent extends Component
     protected $paginationTheme = 'bootstrap';
     public $formation_id;
     public function mount($id) {
-
-
         $this->formation_id = $id;
-
     }
     public function render()
     {
         $modules = Module::where('formation_id',$this->formation_id)->paginate(10);
-
+        // dd($modules);
         return view('livewire.dashboard.moduless.all-dash-modules-component',[
             'modules' => $modules,
         ])->layout('layouts.dashboard');

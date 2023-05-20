@@ -14,8 +14,6 @@ class AddFormationComponent extends Component
     public $description;
     public $duree;
 
-
-
     public function resetInputFields()
     {
         // Clean errors if were visible before

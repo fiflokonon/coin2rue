@@ -7,7 +7,7 @@
       <div class="card">
         <div class="p-3">
             <h5 class="card-header d-inline">Formations</h5>
-            <a href="{{ route('addmodule',['id' => $this->formation_id]) }}" class="btn btn-primary float-end d-inline">Ajouter</a>
+            <a href="{{ route('addlecon',['id' => $this->module_id]) }}" class="btn btn-primary float-end d-inline">Ajouter</a>
         </div>
 
         <div class="table-responsive text-nowrap">
@@ -24,15 +24,15 @@
                 @php
                     $i = 1;
                 @endphp
-                @foreach ($modules as $module)
+                @foreach ($lecons as $lecon)
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>
-                        {{ $module->titre }}
+                        {{ $lecon->titre }}
                     </td>
 
                     <td>
-                        @if ($module->statut == 1)
+                        @if ($lecon->statut == 1)
                         <span class="badge bg-label-primary me-1">Active</span>
                         @else
                         <span class="badge bg-label-danger me-1">Non Active</span>
@@ -42,8 +42,8 @@
                       <div class="dropdown">
                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="{{ route('editmodule',['id' => $module->id]) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
-                          <a class="dropdown-item" href="{{ route('dlecons',['id' => $module->id]) }}"><i class="ti ti-pencil me-1"></i> Ajouter une leçon</a>
+                          <a class="dropdown-item" href="{{ route('editlecon',['id' => $lecon->id]) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
+                          {{-- <a class="dropdown-item" href="{{ route('dquestions',['id' => $lecon->id]) }}"><i class="ti ti-pencil me-1"></i> Ajouter une Question</a> --}}
                           <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-1"></i> Delete</a>
                         </div>
                       </div>
@@ -54,7 +54,7 @@
             </tbody>
           </table>
         </div>
-        {{ $modules->links() }}
+        {{ $lecons->links() }}
       </div>
       <!--/ Basic Bootstrap Table -->
 
