@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('image_link')->nullable();
             $table->text('contenu');
+            $table->bigInteger('ordre');
             $table->foreignId('user_id');
             $table->foreignId('module_id');
             $table->foreignId('lecon_parent_id')->nullable()->constrained('lecons');

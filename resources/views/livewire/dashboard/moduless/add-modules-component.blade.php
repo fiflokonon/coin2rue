@@ -16,7 +16,7 @@
             <div class="p-3">
 
                 <h5 class="card-header d-inline">Ajouter un Module</h5>
-                <a href="{{ route('dmodules',['id' => $this->formation_id]) }}" class="btn btn-primary float-end d-inline">Retour</a>
+                <!--<a href="{{ route('dmodules',['id' => $this->formation_id]) }}" class="btn btn-primary float-end d-inline">Retour</a>-->
                 </div>
             @if (Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message') }}</div>

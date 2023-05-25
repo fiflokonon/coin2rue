@@ -41,7 +41,6 @@ Route::get('/lecons/{id}', OneLeconComponent::class)->name('onelecon');
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
-Route::post('/correction', [QuizComponent::class, 'correction'])->name('correction');
 
 Route::get('/formations', AllDashFormationComponent::class)->name('formations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
@@ -51,7 +50,7 @@ Route::get('/modules/{id}', AllDashModulesComponent::class)->name('dmodules');
 Route::get('/add-module/{id}', AddModulesComponent::class)->name('addmodule');
 Route::get('/module/{id}', EditeModulesComponent::class)->name('editmodule');
 
-Route::get('/lecons/{id}', AllLeconsComponent::class)->name('dlecons');
+#Route::get('/lecons/{id}', AllLeconsComponent::class)->name('dlecons');
 Route::get('/add-lecon/{id}', AddLeconsComponent::class)->name('addlecon');
 Route::get('/lecon/{id}', EditeLeconsComponent::class)->name('editlecon');
 

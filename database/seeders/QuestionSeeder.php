@@ -25,6 +25,7 @@ class QuestionSeeder extends Seeder
                 DB::table('questions')->insert([
                     [
                     'question' => 'Quel est le nom de la plus haute montagne du monde ?',
+                    'commentaire' => 'Le commentaire',
                     'quiz_id' => $quiz->id,
                     'true_or_false' => false,
                     'multiple_answer' => true,
@@ -34,6 +35,7 @@ class QuestionSeeder extends Seeder
                 ],
                 [
                     'question' => 'Quel est le nom de la première femme à avoir remporté un prix Nobel ?',
+                    'commentaire' => 'Le commentaire',
                     'quiz_id' => $quiz->id,
                     'true_or_false' => false,
                     'multiple_answer' => true,
@@ -43,6 +45,7 @@ class QuestionSeeder extends Seeder
                 ],
                 [
                     'question' => 'Combien de planètes gravitent autour du soleil ?',
+                    'commentaire' => 'Le commentaire',
                     'quiz_id' => $quiz->id,
                     'true_or_false' => false,
                     'multiple_answer' => false,
@@ -52,6 +55,7 @@ class QuestionSeeder extends Seeder
                 ],
                 [
                     'question' => 'Quel est le nom de la capitale de l\'Italie ?',
+                    'commentaire' => 'Le commentaire',
                     'quiz_id' => $quiz->id,
                     'true_or_false' => false,
                     'multiple_answer' => true,
@@ -61,6 +65,7 @@ class QuestionSeeder extends Seeder
                 ],
                 [
                     'question' => 'De quel pays provient le kangourou ?',
+                    'commentaire' => 'Le commentaire',
                     'quiz_id' => $quiz->id,
                     'true_or_false' => false,
                     'multiple_answer' => false,
