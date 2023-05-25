@@ -65,4 +65,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(Progression::class);
     }
+
+    public function lecons()
+    {
+        return $this->hasMany(Lecon::class);
+    }
+
+    public function leconsValidees()
+    {
+        return $this->belongsToMany(Lecon::class, 'lecon_user')
+            ->withTimestamps()
+            ->withPivot('valide')
+            ->wherePivot('valide', true);
+    }
+
 }
