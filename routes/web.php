@@ -43,7 +43,7 @@ Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 
-Route::get('/formations', AllDashFormationComponent::class)->name('formations');
+Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
 Route::get('/edit-formation/{id}', EdithFormationComponent::class)->name('editformation');
 

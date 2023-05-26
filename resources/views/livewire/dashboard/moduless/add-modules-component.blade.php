@@ -21,7 +21,7 @@
             @if (Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
-            <form class="card-body" wire:submit.prevent='saveModule'>
+            <form class="card-body" wire:submit.prevent='saveModule' id="formulaire">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label class="form-label" for="">Titre</label>
@@ -58,11 +58,6 @@
     <script src="{{ asset('assets/dash/assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('assets/dash/assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
     <script src="{{ asset('assets/dash/assets/vendor/libs/select2/select2.js') }}"></script>
-    <script src="{{ asset('assets/dash/assets/vendor/libs/quill/katex.js') }}"></script>
-    <script src="{{ asset('assets/dash/assets/vendor/libs/quill/quill.js') }}"></script>
-
-    <!-- Page JS -->
-    <script src="{{ asset('assets/dash/assets/js/forms-editors.js') }}"></script>
 
     <!-- Main JS -->
     <script src="{{ asset('assets/dash/assets/js/main.js') }}"></script>

@@ -21,7 +21,7 @@
             @if (Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
-            <form class="card-body" wire:submit.prevent='saveFormation'>
+            <form class="card-body" wire:submit.prevent='saveFormation' id="formulaire">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label class="form-label" for="">Titre</label>
@@ -55,7 +55,7 @@
                 <hr class="my-4 mx-n4" />
                 <div class="row g-3">
                     <div class="col-md-12" wire:ignore>
-                        <label for="full-editor"><h5>Description</h5></label><textarea id="content" name="contenu" ></textarea>
+                        <label for="full-editor"><h5>Description</h5></label><textarea id="content" name="contenu"></textarea>
                     </div>
                 </div>
                 <div class="pt-4">
@@ -72,11 +72,9 @@
     <script src="{{ asset('assets/dash/assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('assets/dash/assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
     <script src="{{ asset('assets/dash/assets/vendor/libs/select2/select2.js') }}"></script>
-    <script src="{{ asset('assets/dash/assets/vendor/libs/quill/katex.js') }}"></script>
-    <script src="{{ asset('assets/dash/assets/vendor/libs/quill/quill.js') }}"></script>
-
+    <!--<script src="{{ asset('assets/dash/assets/vendor/libs/quill/katex.js') }}"></script>-->
     <!-- Page JS -->
-    <script src="{{ asset('assets/dash/assets/js/forms-editors.js') }}"></script>
+    <!--<script src="{{ asset('assets/dash/assets/js/forms-editors.js') }}"></script>-->
 
     <!-- Main JS -->
     <script src="{{ asset('assets/dash/assets/js/main.js') }}"></script>
@@ -102,7 +100,7 @@
         form.addEventListener('submit', function() {
             var content = tinymce.activeEditor.getContent();
             console.log(content);
-        @this.description = content;
+            @this.description = content;
             document.querySelector('#content').value = content;
         });
     </script>

@@ -24,6 +24,7 @@ class AddLeconsComponent extends Component
         $this->reset(['titre', 'image_link','contenu', 'module_id','description']);
 
     }
+
     public function mount($id) {
         $this->module_id = $id;
     }
