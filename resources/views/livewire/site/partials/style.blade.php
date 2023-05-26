@@ -94,4 +94,19 @@
         font-weight: bold;
     }
 
+    .commentaire-ligne {
+        position: relative;
+    }
+
+    .commentaire-ligne::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -3px; /* Ajustez la position de la ligne selon vos besoins */
+        width: 2px;
+        background-color: gainsboro; /* Couleur de la ligne */
+    }
+
+
 </style>

@@ -59,6 +59,16 @@
                                             @endforeach
                                         </ul>
                                     @endif
+                                    @if($correctionMode && $question->isCorrect($reponsesUtilisateur[$question->id] ?? []))
+                                        <p style="color: green;">Bonne réponse</p>
+                                    @elseif($correctionMode)
+                                        <p style="color: red;">Mauvaise réponse</p>
+                                    @endif
+                                    @if($correctionMode)
+                                        <div class="commentaire-ligne">
+                                            <p>{{ $question->commentaire }}</p>
+                                        </div>
+                                    @endif
                                 </div>
                             @endforeach
                         </div>
@@ -71,7 +81,7 @@
                             </div>
                         </div>
                     </form>
-                    @if ($pourcentage !== null)
+                @if ($pourcentage !== null)
                         @if($pourcentage > $quiz->pass_mark)
                             <div class="row">
                                 <div class="col-12">

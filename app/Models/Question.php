@@ -34,4 +34,21 @@ class Question extends Model
     {
         return $this->hasMany(Reponse::class);
     }
+
+    public function isCorrect($reponsesUtilisateur)
+    {
+        if ($this->true_or_false) {
+            return $reponsesUtilisateur === $this->reponse_correcte;
+        } elseif ($this->one_answer) {
+            return $this->reponses->where('juste', true)->pluck('id')->contains($reponsesUtilisateur);
+        } elseif ($this->multiple_answer) {
+            $reponsesCorrectes = $this->reponses->where('juste', true)->pluck('id')->toArray();
+            $reponsesDonnees = array_keys($reponsesUtilisateur, true);
+            return count($reponsesCorrectes) === count($reponsesDonnees) && empty(array_diff($reponsesCorrectes, $reponsesDonnees));
+        }
+        return false;
+    }
+
+
+
 }
