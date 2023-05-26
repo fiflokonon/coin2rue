@@ -17,6 +17,7 @@ use App\Http\Livewire\Dashboard\Formations\EdithFormationComponent;
 use App\Http\Livewire\Dashboard\Lecons\AddLeconsComponent;
 use App\Http\Livewire\Dashboard\Lecons\AllLeconsComponent;
 use App\Http\Livewire\Dashboard\Lecons\EditeLeconsComponent;
+// use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\AllDashModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\EditeModulesComponent;
 

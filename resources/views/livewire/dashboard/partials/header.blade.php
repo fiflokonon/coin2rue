@@ -9,7 +9,7 @@
     </li>
 
     <li class="menu-item">
-        <a href="{{ route('formations') }}" class="menu-link">
+        <a href="{{ route('dformations') }}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-messages"></i>
             <div data-i18n="Formations">Formations</div>
         </a>

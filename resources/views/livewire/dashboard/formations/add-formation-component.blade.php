@@ -16,7 +16,7 @@
             <div class="p-3">
 
             <h5 class="card-header d-inline">Ajouter une formation</h5>
-            <a href="{{ route('formations') }}" class="btn btn-primary float-end d-inline">Retour</a>
+            <a href="{{ route('dformations') }}" class="btn btn-primary float-end d-inline">Retour</a>
             </div>
             @if (Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
@@ -72,13 +72,18 @@
     <script src="{{ asset('assets/dash/assets/vendor/libs/moment/moment.js') }}"></script>
     <script src="{{ asset('assets/dash/assets/vendor/libs/flatpickr/flatpickr.js') }}"></script>
     <script src="{{ asset('assets/dash/assets/vendor/libs/select2/select2.js') }}"></script>
-    <script src="{{ asset('assets/dash/assets/vendor/libs/quill/katex.js') }}"></script>pt>
+    <script src="{{ asset('assets/dash/assets/vendor/libs/quill/katex.js') }}"></script>
+    <script src="{{ asset('assets/dash/assets/vendor/libs/quill/quill.js') }}"></script>
 
     <!-- Page JS -->
     <script src="{{ asset('assets/dash/assets/js/forms-editors.js') }}"></script>
 
     <!-- Main JS -->
     <script src="{{ asset('assets/dash/assets/js/main.js') }}"></script>
+
+    <!-- Page JS -->
+    <script src="{{ asset('assets/dash/assets/js/form-layouts.js') }}"></script>
+
 
     <!-- Page JS -->
     <script src="{{ asset('assets/dash/assets/js/form-layouts.js') }}"></script>
