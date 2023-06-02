@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('prix')->nullable();
             $table->integer('duree')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image_link')->nullable();
             $table->boolean('statut_admin')->default(0);
             $table->boolean('statut')->default(0);
             $table->foreignId('user_id')->constrained('users');

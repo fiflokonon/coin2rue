@@ -31,7 +31,13 @@
                         <label class="form-label" for="">Durée</label>
                         <div class="input-group input-group-merge">
                             <input type="number" class="form-control" placeholder="En jour" wire:model="duree" />
+                            @if ($this->duree)
+                            <span class="input-group-text" id="multicol-email2">{{ $this->duree }} jours</span>
+
+                            @else
                             <span class="input-group-text" id="multicol-email2">30 jours</span>
+
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -47,7 +53,7 @@
                         <div class="form-password-toggle">
                             <label class="form-label" for="">Image</label>
                             <div class="input-group input-group-merge">
-                                <input type="file" class="form-control" placeholder="image" wire:model="image" />
+                                <input type="file" class="form-control" placeholder="image" wire:model="image_link" />
                             </div>
                         </div>
                     </div>

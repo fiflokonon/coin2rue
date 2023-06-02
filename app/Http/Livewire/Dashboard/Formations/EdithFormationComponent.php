@@ -2,16 +2,19 @@
 
 namespace App\Http\Livewire\Dashboard\Formations;
 
-use App\Models\Formation;
 use Livewire\Component;
+use App\Models\Formation;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
 
 class EdithFormationComponent extends Component
 {
+    use WithFileUploads;
+
     public $titre;
     public $prix;
-    public $image;
+    public $image_link,$old_image_link;
     public $description;
     public $duree;
     public $user_id;
@@ -22,7 +25,7 @@ class EdithFormationComponent extends Component
         // Clean errors if were visible before
         $this->resetErrorBag();
         $this->resetValidation();
-        $this->reset(['titre', 'prix','image', 'duree','description']);
+        $this->reset(['titre', 'prix','image_link', 'duree','description']);
 
     }
 
@@ -34,7 +37,8 @@ class EdithFormationComponent extends Component
         $this->titre = $formation->titre;
         $this->prix = $formation->prix;
         $this->duree =  $formation->duree;
-        $this->image = $formation->image;
+        $this->image_link = $formation->image_link;
+        $this->old_image_link = $formation->image_link;
         $this->description = $formation->description;
         $this->user_id = $formation->user_id;
     }
@@ -52,6 +56,27 @@ class EdithFormationComponent extends Component
             // dd($this->description);
 
         $formation = Formation::find($this->formation_id);
+            // dd($this->image_link, $this->old_image_link);
+
+
+        if($this->image_link == $this->old_image_link || $this->image_link == null)
+        {
+            $formation->image_link = $this->old_image_link;
+            // dd('ok');
+
+
+        }else{
+            $filenameImage = time() . '.' . $this->image_link->extension();
+            $pathImage = $this->image_link->storeAs(
+                'ImageFormation',
+                $filenameImage,
+                'public'
+            );
+
+            $formation->image_link = $pathImage;
+        }
+
+
 
         $formation->user_id = $this->user_id;
         $formation->titre = $this->titre;

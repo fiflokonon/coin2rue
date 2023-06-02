@@ -4,12 +4,15 @@ namespace App\Http\Livewire\Dashboard\Lecons;
 
 use App\Models\Lecon;
 use App\Models\Module;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Livewire\Component;
 
 class AddLeconsComponent extends Component
 {
+    use WithFileUploads;
+
     public $titre;
     public $image_link;
     public $contenu = "mon texte";
@@ -42,16 +45,23 @@ class AddLeconsComponent extends Component
             // dd($this->description);
 
         $lecon = new Lecon();
+        $filenameImage = time() . '.' . $this->image_link->extension();
+        $pathImage = $this->image_link->storeAs(
+            'ImageLecon',
+            $filenameImage,
+            'public'
+        );
+
+        $lecon->image_link = $pathImage;
 
         $lecon->user_id = Auth::user()->id;
         $lecon->titre = $this->titre;
-        $lecon->image_link = $this->image_link;
         $lecon->contenu = $this->contenu;
         $lecon->module_id = $this->module_id;
         $lecon->description = $this->description;
         $lecon->save();
-
-       session()->flash('message', 'Enregistrement effectué avec succès.');
+        return redirect()->route('addlecon', $this->module_id)->with('message', 'Enregistrement effectué avec succès.');
+    //    session()->flash('message', 'Enregistrement effectué avec succès.');
        $this->resetInputFields();
     }
 

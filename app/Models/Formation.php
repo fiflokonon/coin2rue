@@ -15,7 +15,7 @@ class Formation extends Model
         'description',
         'prix',
         'duree',
-        'image',
+        'image_link',
         'user_id',
         'statut_admin',
         'statut',

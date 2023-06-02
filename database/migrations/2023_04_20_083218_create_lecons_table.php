@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lecons', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image_link')->nullable();
             $table->text('contenu');
             $table->bigInteger('ordre');

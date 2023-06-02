@@ -47,7 +47,7 @@
                         <div class="form-password-toggle">
                             <label class="form-label" for="">Image</label>
                             <div class="input-group input-group-merge">
-                                <input type="file" class="form-control" placeholder="image" wire:model="image" />
+                                <input type="file" class="form-control" placeholder="image" wire:model="image_link" />
                             </div>
                         </div>
                     </div>
