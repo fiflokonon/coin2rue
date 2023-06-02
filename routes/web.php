@@ -44,7 +44,7 @@ Route::get('/register', RegisterComponent::class)->name('register');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 Route::post('/correction', [QuizComponent::class, 'correction'])->name('correction');
 
-Route::get('/formations', AllDashFormationComponent::class)->name('formations');
+Route::get('/formations', AllDashFormationComponent::class)->name('dformations');
 Route::get('/add-formation', AddFormationComponent::class)->name('addformation');
 Route::get('/edit-formation/{id}', EdithFormationComponent::class)->name('editformation');
 

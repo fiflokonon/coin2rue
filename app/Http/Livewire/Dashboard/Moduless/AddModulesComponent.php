@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire\Dashboard\Moduless;
 
-use App\Models\Formation;
 use App\Models\Module;
+use Livewire\Component;
+use App\Models\Formation;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Livewire\Component;
 
 class AddModulesComponent extends Component
 {
+    use WithFileUploads;
+
     public $titre;
     public $image_link;
     public $description;
@@ -41,15 +44,24 @@ class AddModulesComponent extends Component
 
         $module = new Module();
 
+        $filenameImage = time() . '.' . $this->image_link->extension();
+        $pathImage = $this->image_link->storeAs(
+            'ImageModule',
+            $filenameImage,
+            'public'
+        );
+
+        $module->image_link = $pathImage;
         $module->created_by = Auth::user()->id;
         $module->titre = $this->titre;
-        $module->image_link = $this->image_link;
         $module->formation_id = $this->formation_id;
         $module->description = $this->description;
         $module->save();
 
-       session()->flash('message', 'Enregistrement effectué avec succès.');
-       $this->resetInputFields();
+        // session()->flash('message', 'Enregistrement effectué avec succès.');
+        return redirect()->route('addmodule', $this->formation_id)->with('message', 'Enregistrement effectué avec succès.');
+        $this->resetInputFields();
+
     }
     public function render()
     {

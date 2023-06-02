@@ -11,6 +11,7 @@ class EditeModulesComponent extends Component
 {
     public $titre;
     public $image_link;
+    public $old_image_link;
     public $formation_id;
     public $description;
     public $module_id;
@@ -33,6 +34,7 @@ class EditeModulesComponent extends Component
         $this->module_id = $id;
         $this->titre = $module->titre;
         $this->image_link = $module->image_link;
+        $this->old_image_link = $module->image_link;
         $this->formation_id =  $module->formation_id;
         $this->description = $module->description;
         $this->created_by = $module->created_by;
@@ -52,14 +54,29 @@ class EditeModulesComponent extends Component
 
         $module = Module::find($this->module_id);
 
+        if($this->image_link == $this->old_image_link || $this->image_link == null)
+        {
+            $module->image_link = $this->old_image_link;
+            // dd('ok');
+
+
+        }else{
+            $filenameImage = time() . '.' . $this->image_link->extension();
+            $pathImage = $this->image_link->storeAs(
+                'ImageModel',
+                $filenameImage,
+                'public'
+            );
+
+            $module->image_link = $pathImage;
+        }
+
         $module->created_by = $this->created_by;
         $module->titre = $this->titre;
-        $module->image_link = $this->image_link;
         $module->formation_id = $this->formation_id;
         $module->description = $this->description;
         $module->save();
-
-       session()->flash('message', 'Modification effectué avec succès.');
+       return redirect()->route('addmodule', $this->formation_id)->with('message', 'Modification effectué avec succès.');
        $this->resetInputFields();
 
     }

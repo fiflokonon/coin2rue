@@ -10,7 +10,7 @@ use Livewire\Component;
 class EditeLeconsComponent extends Component
 {
     public $titre;
-    public $image_link;
+    public $image_link, $old_image_link;
     public $contenu;
     public $description;
     public $module_id;
@@ -33,6 +33,7 @@ class EditeLeconsComponent extends Component
         $this->lecon_id = $id;
         $this->titre = $lecon->titre;
         $this->image_link = $lecon->image_link;
+        $this->old_image_link = $lecon->image_link;
         $this->contenu =  $lecon->contenu;
         $this->module_id = $lecon->module_id;
         $this->description = $lecon->description;
@@ -53,15 +54,30 @@ class EditeLeconsComponent extends Component
 
         $lecon = Lecon::find($this->lecon_id);
 
+        if($this->image_link == $this->old_image_link || $this->image_link == null)
+        {
+            $lecon->image_link = $this->old_image_link;
+            // dd('ok');
+
+
+        }else{
+            $filenameImage = time() . '.' . $this->image_link->extension();
+            $pathImage = $this->image_link->storeAs(
+                'ImageLecon',
+                $filenameImage,
+                'public'
+            );
+
+            $lecon->image_link = $pathImage;
+        }
+
         $lecon->user_id = $this->user_id;
         $lecon->titre = $this->titre;
-        $lecon->image_link = $this->image_link;
         $lecon->contenu = $this->contenu;
         $lecon->module_id = $this->module_id;
         $lecon->description = $this->description;
         $lecon->save();
-
-       session()->flash('message', 'Modification effectué avec succès.');
+        return redirect()->route('addlecon', $this->module_id)->with('message', 'Modification effectué avec succès.');
        $this->resetInputFields();
 
     }

@@ -4,13 +4,15 @@ namespace App\Http\Livewire\Dashboard\Formations;
 
 use Livewire\Component;
 use App\Models\Formation;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
 class AddFormationComponent extends Component
 {
+    use WithFileUploads;
     public $titre;
     public $prix;
-    public $image;
+    public $image_link;
     public $description;
     public $duree;
 
@@ -19,7 +21,7 @@ class AddFormationComponent extends Component
         // Clean errors if were visible before
         $this->resetErrorBag();
         $this->resetValidation();
-        $this->reset(['titre', 'prix','image', 'duree','description']);
+        $this->reset(['titre', 'prix','image_link', 'duree','description']);
 
     }
 
@@ -37,6 +39,14 @@ class AddFormationComponent extends Component
 
         $formation = new Formation();
 
+        $filenameImage = time() . '.' . $this->image_link->extension();
+        $pathImage = $this->image_link->storeAs(
+            'ImageFormation',
+            $filenameImage,
+            'public'
+        );
+
+        $formation->image_link = $pathImage;
         $formation->user_id = Auth::user()->id;
         $formation->titre = $this->titre;
         $formation->prix = $this->prix;

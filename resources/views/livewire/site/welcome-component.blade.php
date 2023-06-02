@@ -283,7 +283,7 @@
 	</section>
 	<!--counter-area end-->
         <!--counter-area start-->
-	<section class="grey-bg counter-area pb-90 pt-md-50 pb-md-30 pt-xs-50 pb-xs-30">
+<section class="grey-bg counter-area pb-90 pt-md-50 pb-md-30 pt-xs-50 pb-xs-30">
         <div class="container">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
@@ -407,6 +407,173 @@
                     </a>
                 </div>
         </div>
+</section>
+ <!--counter-area start-->
+ <section class="counter-area pt-110 pb-85 pt-md-60 pb-md-30 pt-xs-60 pb-xs-30 home-5">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-lg-3 col-md-3">
+                <div class="rts-counter-list">
+                    <div class="counter-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="count-text2 text-left mb-30 mt-xs-20">
+                        <h3><span class="counter">25</span>+</h3>
+                        <h5>Years of Experience</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="rts-counter-list">
+                    <div class="counter-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="count-text2 text-left mb-30 mt-xs-20">
+                        <h3><span class="counter">
+                                3921 </span>+</h3>
+                        <h5>IT Problems Solved</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="rts-counter-list">
+                    <div class="counter-icon">
+                        <i class="fas fa-thumbs-up"></i>
+                    </div>
+                    <div class="count-text2 text-left mb-30 mt-xs-20">
+                        <h3><span class="counter">199</span>+</h3>
+                        <h5>Satisfied Clients</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="rts-counter-list">
+                    <div class="counter-icon">
+                        <i class="fas fa-thumbs-up"></i>
+                    </div>
+                    <div class="count-text2 text-left mb-30 mt-xs-20">
+                        <h3><span class="counter">199</span>+</h3>
+                        <h5>Satisfied Clients</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--counter-area end-->
+
+<section class="grey-bg counter-area pb-90 pt-md-50 pb-md-30 pt-xs-50 pb-xs-30">
+    <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+                        <div class="card-body p-3 row">
+                          <div class="col-2">
+                            <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+                          </div>
+                          <div class="col-10">
+                            <h4 class="card-title mb-4">voiture électronique</h4>
+                            <span>text text text tex</span><br>
+                            <span>text text text text </span><br>
+                            <span>text text text text </span><br>
+                        </div>
+                        </div>
+
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+                        <div class="card-body p-3 row">
+                          <div class="col-2">
+                            <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+                          </div>
+                          <div class="col-10">
+                            <h4 class="card-title mb-4">voiture électronique</h4>
+                            <span>text text text tex</span><br>
+                            <span>text text text text </span><br>
+                            <span>text text text text </span><br>
+                        </div>
+                        </div>
+
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+                        <div class="card-body p-3 row">
+                          <div class="col-2">
+                            <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+                          </div>
+                          <div class="col-10">
+                            <h4 class="card-title mb-4">voiture électronique</h4>
+                            <span>text text text tex</span><br>
+                            <span>text text text text </span><br>
+                            <span>text text text text </span><br>
+                        </div>
+                        </div>
+
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+                        <div class="card-body p-3 row">
+                          <div class="col-2">
+                            <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+                          </div>
+                          <div class="col-10">
+                            <h4 class="card-title mb-4">voiture électronique</h4>
+                            <span>text text text tex</span><br>
+                            <span>text text text text </span><br>
+                            <span>text text text text </span><br>
+                        </div>
+                        </div>
+
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+                        <div class="card-body p-3 row">
+                          <div class="col-2">
+                            <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+                          </div>
+                          <div class="col-10">
+                            <h4 class="card-title mb-4">voiture électronique</h4>
+                            <span>text text text tex</span><br>
+                            <span>text text text text </span><br>
+                            <span>text text text text </span><br>
+                        </div>
+                        </div>
+
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('assets/site/img/blog.png') }}" alt="">
+                        <div class="card-body p-3 row">
+                          <div class="col-2">
+                            <img src="{{ asset('assets/site/img/lieu.png') }}" alt="">
+                          </div>
+                          <div class="col-10">
+                            <h4 class="card-title mb-4">voiture électronique</h4>
+                            <span>text text text tex</span><br>
+                            <span>text text text text </span><br>
+                            <span>text text text text </span><br>
+                        </div>
+                        </div>
+
+                      </div>
+                </div>
+            </div>
+            <div class="text-center mt-50">
+                <a href="" class="btn btn-warning px-5 rounded-pill mt-10">
+                    Tout voir
+                </a>
+            </div>
+    </div>
 </section>
 <!--counter-area end-->
     <!--core-feature-area start-->
