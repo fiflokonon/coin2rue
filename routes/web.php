@@ -51,7 +51,7 @@ Route::get('/modules/{id}', AllDashModulesComponent::class)->name('dmodules');
 Route::get('/add-module/{id}', AddModulesComponent::class)->name('addmodule');
 Route::get('/module/{id}', EditeModulesComponent::class)->name('editmodule');
 
-#Route::get('/lecons/{id}', AllLeconsComponent::class)->name('dlecons');
+Route::get('/dlecons/{id}', AllLeconsComponent::class)->name('dlecons');
 Route::get('/add-lecon/{id}', AddLeconsComponent::class)->name('addlecon');
 Route::get('/lecon/{id}', EditeLeconsComponent::class)->name('editlecon');
 

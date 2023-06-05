@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lecon_users', function (Blueprint $table) {
-            $table->unsignedBigInteger('lecon_id');
-            $table->unsignedBigInteger('user_id');
+        Schema::create('quiz_users', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('quiz_id');
+            $table->foreignId('user_id');
             $table->boolean('valide')->default(false);
             $table->timestamps();
-            $table->foreign('lecon_id')->references('id')->on('lecons')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lecon_users');
+        Schema::dropIfExists('quiz_users');
     }
 };

@@ -6,8 +6,10 @@ namespace App\Http\Livewire\Site\Formations;
 use App\Models\Module;
 use App\Models\Progression;
 use App\Models\Quiz;
+use App\Models\QuizUser;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use PhpParser\Node\Expr\AssignOp\Mod;
 
 class QuizComponent extends Component
 {
@@ -60,22 +62,54 @@ class QuizComponent extends Component
         }
         $this->pourcentage = ($totalCorrectes / $totalQuestions) * 100;
         $this->correctionMode = true;
-        $checkProgression = $this->updateProgression();
-        if ($checkProgression)
+        //Si le pourcentage dépasse la limite d'acceptation
+        if ($this->pourcentage >= $quiz->pass_mark)
         {
-
+            //On check l'existence d'une certaine validation du quiz
+            $quiz_user = QuizUser::where('user_id', Auth::user()->id)->where('quiz_id', $quiz->id)->first();
+            if ($quiz_user){
+                //Si une validation existe, on vérifie si elle est déjà validée
+                if ($quiz_user->valide){
+                    //Si elle l'est on exécute updateProgression pour mettre les pourcentages de progressions au niveau du quiz
+                    $this->updateProgression();
+                }
+                else
+                {
+                    $quiz_user->valide = true;
+                    $quiz_user->save();
+                    $this->completeQuizInModule($quiz->id);
+                }
+            }else
+            {
+                $quiz_user = new QuizUser();
+                $quiz_user->user_id = Auth::user()->id;
+                $quiz_user->quiz_id = $quiz->id;
+                $quiz_user->valide = true;
+                $this->completeQuizInModule($quiz->id);
+            }
         }
         return $this->render();
     }
 
     public function changeProgression()
     {
-        
+        $quiz = Quiz::find($this->quiz_id);
+        $module = Module::find($quiz->module_id);
+
+        $user = Auth::user();
+        // Mettre à jour la progression du quiz
+        $existingProgression = Progression::where('progressionable_id', $module->id)
+            ->where('progressionable_type', 'App\Models\Module')
+            ->where('user_id', $user->id)
+            ->first();
+        if ($existingProgression){
+            $existingProgression->pourcentage += 20;
+        }
     }
+
     public function updateProgression()
     {
         $quiz = Quiz::find($this->quiz_id);
-        $module = Module::find($quiz->quizable_id);
         $user = Auth::user();
         $currentPercentage = $this->pourcentage;
 
@@ -100,6 +134,30 @@ class QuizComponent extends Component
             $progression->pourcentage = $currentPercentage;
             $progression->save();
             return true;
+        }
+    }
+
+    public function completeQuizInModule(string $quiz_id){
+        $quiz_complete = Quiz::find($quiz_id);
+        if ($quiz_complete){
+            $module_complete = Module::find($quiz_complete->module_id);
+            if ($module_complete){
+                $existingProgression = Progression::where('progressionable_id', $module_complete->id)
+                    ->where('progressionable_type', 'App\Models\Module')
+                    ->where('user_id', Auth::user()->id)
+                    ->first();
+                if ($existingProgression){
+                    $existingProgression = $existingProgression + 20;
+                    $existingProgression->save();
+                }else{
+                   $module_progression = new Progression();
+                    $module_progression->progressionable_id = $module_complete->id;
+                    $module_progression->progressionable_type = 'App\Models\Module';
+                    $module_progression->user_id = Auth::user()->id;
+                    $module_progression->pourcentage = 20;
+                    $module_progression->save();
+                }
+            }
         }
     }
 }

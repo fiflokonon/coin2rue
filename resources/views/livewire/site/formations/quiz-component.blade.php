@@ -82,7 +82,7 @@
                         </div>
                     </form>
                 @if ($pourcentage !== null)
-                        @if($pourcentage > $quiz->pass_mark)
+                        @if($pourcentage >= $quiz->pass_mark)
                             <div class="row">
                                 <div class="col-12">
                                     <div class="alert-success">Quiz réussi</div>

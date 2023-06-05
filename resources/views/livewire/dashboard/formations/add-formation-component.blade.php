@@ -97,7 +97,7 @@
             selector: '#content',
             height: 300,
             plugins: 'autolink lists link image charmap print preview',
-            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image | copy',
             menubar: false,
             branding: false
         });
