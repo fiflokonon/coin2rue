@@ -50,12 +50,16 @@
                         @endif
                     </div>
                     <div class="row">
+                        @if($lecon_precedente)
                         <div class="col-6">
-                            <a href="#" class="btn btn-info float-start text-light"><i class="fa fa-chevron-left"></i> Précédent</a>
+                            <a href="{{ route('onelecon', ['id' => $lecon_precedente->id]) }}" class="btn btn-info float-start text-light"><i class="fa fa-chevron-left"></i> Précédent</a>
                         </div>
+                        @endif
+                        @if($lecon_suivante)
                         <div class="col-6">
-                            <a href="#" class="btn btn-info float-end text-light">Suivant <i class="fa fa-chevron-right"></i></a>
+                            <a href="{{ route('onelecon', ['id' => $lecon_suivante->id]) }}" class="btn btn-info float-end text-light">Suivant <i class="fa fa-chevron-right"></i></a>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4 pl-30 pl-lg-15 pl-md-15 pl-xs-15">
@@ -72,32 +76,25 @@
                                         <div class="post-content">
                                             <h6 class="mb-10"><a href="news-details.html">Having education in
                                                     an area helps</a></h6>
-                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March
-													2022</span>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March 2022</span>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="blog-post mb-30">
-                                        <a href="news-details.html"><img src="img/blog/post-2.jpg"
-                                                                         alt="Post Img"></a>
+                                        <a href="news-details.html"><img src="img/blog/post-2.jpg" alt="Post Img"></a>
                                         <div class="post-content">
-                                            <h6 class="mb-10"><a href="news-details.html">people think, feel, &
-                                                    behave in a way</a></h6>
-                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March
-													2022</span>
+                                            <h6 class="mb-10"><a href="news-details.html">people think, feel, & behave in a way</a></h6>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March 2022</span>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="blog-post mb-30">
-                                        <a href="news-details.html"><img src="img/blog/post-3.jpg"
-                                                                         alt="Post Img"></a>
+                                        <a href="news-details.html"><img src="img/blog/post-3.jpg" alt="Post Img"></a>
                                         <div class="post-content">
-                                            <h6 class="mb-10"><a href="news-details.html">that contributes to
-                                                    their success</a></h6>
-                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March
-													2022</span>
+                                            <h6 class="mb-10"><a href="news-details.html">that contributes to their success</a></h6>
+                                            <span class="fs-14"><i class="fal fa-calendar-alt"></i> 24th March 2022</span>
                                         </div>
                                     </div>
                                 </li>

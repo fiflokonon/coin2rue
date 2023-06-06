@@ -18,7 +18,8 @@ class OneLeconComponent extends Component
     {
         $this->lecon_id = $id;
     }
-    public function render()
+
+    /*public function render()
     {
         $lecon = Lecon::find($this->lecon_id);
         $module = Module::find($lecon->module_id);
@@ -29,7 +30,25 @@ class OneLeconComponent extends Component
             'module' => $lecon->module,
             'lecon_user' => $leconUser
         ]);
+    }*/
+    public function render()
+    {
+        $lecon = Lecon::find($this->lecon_id);
+        $module = Module::find($lecon->module_id);
+        $leconUser = LeconUser::where('lecon_id', $this->lecon_id)->where('user_id', Auth::user()->id)->first();
+        $leconSuivante = Lecon::where('module_id', $module->id)->where('ordre', '>', $lecon->ordre)->orderBy('ordre', 'asc')->first();
+        $leconPrecedente = Lecon::where('module_id', $module->id)->where('ordre', '<', $lecon->ordre)->orderBy('ordre', 'desc')->first();
+
+        return view('livewire.site.formations.one-lecon-component',[
+            'lecon' => $lecon,
+            'lecons' => $module->lecons,
+            'module' => $lecon->module,
+            'lecon_user' => $leconUser,
+            'lecon_suivante' => $leconSuivante,
+            'lecon_precedente' => $leconPrecedente
+        ]);
     }
+
 
     public function valide()
     {
