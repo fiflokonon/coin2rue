@@ -34,11 +34,10 @@
                                         <a class="nav-link" href="">MON COMPTE</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="">CONTACT</a>
+                                        <a class="nav-link" href="{{ route('contact') }}">CONTACT</a>
                                     </li>
                                     <li class="right-nav mb-0 d-flex align-items-center justify-content-end">
                                         @if (Auth::guest())
-
                                             <a href="{{route('login')}}" class="btn btn-warning px-5 rounded-pill text-white">
                                                 INSCRIPTIONS
                                             </a>

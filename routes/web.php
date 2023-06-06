@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
+use App\Http\Livewire\Site\Pages\ContactComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Auth\LoginComponent;
 use App\Http\Livewire\Site\WelcomeComponent;
@@ -41,6 +42,7 @@ Route::get('/modules/{id}/lecons', ModulesComponent::class)->name('lecons');
 Route::get('/lecons/{id}', OneLeconComponent::class)->name('onelecon');
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/register', RegisterComponent::class)->name('register');
+Route::get('/contact', ContactComponent::class)->name('contact');
 Route::get('/quiz/{id}', QuizComponent::class)->name('quiz');
 
 Route::get('/formations', AllDashFormationComponent::class)->name('dformations');

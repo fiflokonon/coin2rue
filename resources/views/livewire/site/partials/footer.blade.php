@@ -7,7 +7,7 @@
                     <address class="address-box">
                         <span><i class="fa fa-phone-alt"></i> Téléphone: +6789-875-2235</span>
                         <a href="mailto:contact@coin2rue.fr"><span><i class="fas fa-envelope"></i> contact@coin2rue.fr</span></a>
-                        <span> <i class="fa fa-location-circle"></i> 103 Avenue Lorem Ipsum</span>
+                        <span> <i class="fas fa-map-marker-alt"></i> 103 Avenue Lorem Ipsum</span>
                     </address>
                 </div>
             </div>
@@ -58,8 +58,7 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 text-center" >
                     <div class="copyright">
-                        <h6 style="color: white">Copyright ©2022 Waretech. Designed & Developed
-                            by Reacthemes</h6>
+                        <h6 style="color: white">Copyright ©2022 Waretech. Designed & Developed by Reacthemes</h6>
                     </div>
                 </div>
             </div>

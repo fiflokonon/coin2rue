@@ -20,7 +20,7 @@
                                     <a class="nav-link" href="">MON COMPTE</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">CONTACT</a>
+                                    <a class="nav-link" href="{{ route('contact') }}">CONTACT</a>
                                 </li>
                             </ul>
                         </nav>
