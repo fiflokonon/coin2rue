@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lecon_users', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('lecon_id');
             $table->unsignedBigInteger('user_id');
             $table->boolean('valide')->default(false);

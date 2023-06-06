@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Site\Formations;
 
 
+use App\Models\Formation;
 use App\Models\Module;
 use App\Models\Progression;
 use App\Models\Quiz;
@@ -77,34 +78,22 @@ class QuizComponent extends Component
                 {
                     $quiz_user->valide = true;
                     $quiz_user->save();
+                    $this->updateProgression();
                     $this->completeQuizInModule($quiz->id);
                 }
-            }else
+            }
+            else
             {
                 $quiz_user = new QuizUser();
                 $quiz_user->user_id = Auth::user()->id;
                 $quiz_user->quiz_id = $quiz->id;
                 $quiz_user->valide = true;
+                $quiz_user->save();
+                $this->updateProgression();
                 $this->completeQuizInModule($quiz->id);
             }
         }
         return $this->render();
-    }
-
-    public function changeProgression()
-    {
-        $quiz = Quiz::find($this->quiz_id);
-        $module = Module::find($quiz->module_id);
-
-        $user = Auth::user();
-        // Mettre à jour la progression du quiz
-        $existingProgression = Progression::where('progressionable_id', $module->id)
-            ->where('progressionable_type', 'App\Models\Module')
-            ->where('user_id', $user->id)
-            ->first();
-        if ($existingProgression){
-            $existingProgression->pourcentage += 20;
-        }
     }
 
     public function updateProgression()
@@ -112,49 +101,107 @@ class QuizComponent extends Component
         $quiz = Quiz::find($this->quiz_id);
         $user = Auth::user();
         $currentPercentage = $this->pourcentage;
-
         // Mettre à jour la progression du quiz
         $existingProgression = Progression::where('progressionable_id', $quiz->id)
             ->where('progressionable_type', 'App\Models\Quiz')
             ->where('user_id', $user->id)
             ->first();
-
-        if ($existingProgression) {
-            if ($currentPercentage > $existingProgression->pourcentage) {
+        if ($existingProgression)
+        {
+            if ($currentPercentage > $existingProgression->pourcentage)
+            {
                 $existingProgression->pourcentage = $currentPercentage;
                 $existingProgression->save();
-                return false;
             }
-            return false;
-        } else {
+        }
+        else
+        {
             $progression = new Progression();
             $progression->progressionable_id = $quiz->id;
             $progression->progressionable_type = 'App\Models\Quiz';
             $progression->user_id = $user->id;
             $progression->pourcentage = $currentPercentage;
             $progression->save();
-            return true;
         }
     }
 
     public function completeQuizInModule(string $quiz_id){
         $quiz_complete = Quiz::find($quiz_id);
         if ($quiz_complete){
-            $module_complete = Module::find($quiz_complete->module_id);
+            $module_complete = Module::find($quiz_complete->quizable_id);
             if ($module_complete){
                 $existingProgression = Progression::where('progressionable_id', $module_complete->id)
                     ->where('progressionable_type', 'App\Models\Module')
                     ->where('user_id', Auth::user()->id)
                     ->first();
                 if ($existingProgression){
-                    $existingProgression = $existingProgression + 20;
+                    $existingProgression->pourcentage = $existingProgression->pourcentage + 20;
                     $existingProgression->save();
+                    $this->updateFormationProgression($module_complete->id);
                 }else{
-                   $module_progression = new Progression();
+                    $module_progression = new Progression();
                     $module_progression->progressionable_id = $module_complete->id;
                     $module_progression->progressionable_type = 'App\Models\Module';
                     $module_progression->user_id = Auth::user()->id;
                     $module_progression->pourcentage = 20;
+                    $module_progression->save();
+                    $this->updateFormationProgression($module_complete->id);
+                }
+            }
+        }
+    }
+
+    public function calculateFormationProgression($formation_id)
+    {
+        $formation = Formation::find($formation_id);
+
+        if ($formation) {
+            $totalModules = $formation->modules->count();
+            $totalProgression = 0;
+
+            foreach ($formation->modules as $module) {
+                $moduleProgression = Progression::where('progressionable_id', $module->id)
+                    ->where('progressionable_type', 'App\Models\Module')
+                    ->where('user_id', Auth::user()->id)
+                    ->first();
+
+                if ($moduleProgression) {
+                    $totalProgression += $moduleProgression->pourcentage;
+                }
+            }
+
+            if ($totalModules > 0) {
+                $formationProgression = $totalProgression / $totalModules;
+            } else {
+                $formationProgression = 0;
+            }
+
+            return $formationProgression;
+        }
+
+        return 0;
+    }
+
+    public function updateFormationProgression(string $module_id)
+    {
+        $module_update = Module::find($module_id);
+        if ($module_update){
+            $formation_update = Formation::find($module_update->formation_id);
+            if ($formation_update){
+                #$unity = intval(100 / $formation_update->modules->count());
+                $existingProgression = Progression::where('progressionable_id', $formation_update->id)
+                    ->where('progressionable_type', 'App\Models\Formation')
+                    ->where('user_id', Auth::user()->id)
+                    ->first();
+                if ($existingProgression){
+                    $existingProgression->pourcentage = intval($this->calculateFormationProgression($formation_update->id));
+                    $existingProgression->save();
+                }else{
+                    $module_progression = new Progression();
+                    $module_progression->progressionable_id = $formation_update->id;
+                    $module_progression->progressionable_type = 'App\Models\Formation';
+                    $module_progression->user_id = Auth::user()->id;
+                    $module_progression->pourcentage = intval($this->calculateFormationProgression($formation_update->id));
                     $module_progression->save();
                 }
             }

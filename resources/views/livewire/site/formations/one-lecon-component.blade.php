@@ -40,9 +40,10 @@
                             <a href="https://www.youtube.com/watch?v=KvORw7pvpMs">MP4</a>
                             video.
                         </video>
-                        <p class="mt-15">
+                        <p class="mt-15 mb-5">
                             {{ $lecon->contenu }}
                         </p>
+                        <a wire:click.prevent='valide()' class="btn btn-info float-end text-light"><i class="fa fa-check"></i> Terminé</a>
                     </div>
                     <div class="row">
                         <div class="col-6">
