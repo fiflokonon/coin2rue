@@ -43,7 +43,11 @@
                         <p class="mt-15 mb-5">
                             {{ $lecon->contenu }}
                         </p>
-                        <a wire:click.prevent='valide()' class="btn btn-info float-end text-light"><i class="fa fa-check"></i> Terminé</a>
+                        @if($lecon_user && $lecon_user->valide)
+                            <a class="btn btn-success float-end text-light"><i class="fa fa-check"></i> Terminé</a>
+                        @else
+                            <a wire:click.prevent='valide()' class="btn btn-info float-end text-light"><i class="fa fa-check"></i> Terminé</a>
+                        @endif
                     </div>
                     <div class="row">
                         <div class="col-6">

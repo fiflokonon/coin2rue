@@ -28,7 +28,6 @@ class QuizComponent extends Component
     {
         $quiz = Quiz::find($this->quiz_id);
         $pourcentage = $this->pourcentage;
-
         return view('livewire.site.formations.quiz-component', [
             'quiz' => $quiz,
             'lecon' => $quiz->lecon,
