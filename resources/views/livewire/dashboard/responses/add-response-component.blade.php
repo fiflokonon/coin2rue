@@ -22,54 +22,33 @@
             @if (Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
-            <form class="card-body" wire:submit.prevent='saveLecon'>
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label" for="">Titre</label>
-                        <input type="text" class="form-control" placeholder="Titre" wire:model="titre" />
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <div class="form-password-toggle">
-                            <label class="form-label" for="">Image</label>
-                            <div class="input-group input-group-merge">
-                                <input type="file" class="form-control" placeholder="image" wire:model="image_link" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label" wire:model="ordre" for="">Ordres</label>
-                        <select name="" id="" class="form-control">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                </div>
-                <hr class="my-4 mx-n4" />
+            <form class="card-body" wire:submit.prevent='saveResponse' >
                 <div class="row g-3">
                     <div class="col-md-12">
-                        <h5>Description</h5>
-                        <div wire:ignore id="full-editor">
-                            <h6>Quill Rich Text Editor</h6>
-                            <p> Cupcake ipsum dolor sit amet. Halvah cheesecake chocolate bar gummi bears cupcake. Pie
-                                macaroon bear claw. Soufflé I love candy canes I love cotton candy I love. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-12" wire:ignore>
-                        <label for="full-editor"><h5>Contenu de la leçon</h5></label><textarea id="content" name="contenu" ></textarea>
+                        <label class="form-label" for="">Responses</label>
+                        <input type="text" class="form-control" placeholder="responses" wire:model="responses" />
                     </div>
 
+
+                    <div class="col-md-12">
+                        <label class="switch switch-lg">
+                            <input type="checkbox" class="switch-input"  />
+                            <span class="switch-toggle-slider">
+                              <span class="switch-on">
+                                <i class="ti ti-check"></i>
+                              </span>
+                              <span class="switch-off">
+                                <i class="ti ti-x"></i>
+                              </span>
+                            </span>
+                            <span class="switch-label">juste</span>
+                          </label>
+                    </div>
+
+
                 </div>
+                <hr class="my-4 mx-n4" />
+
                 <div class="pt-4">
                     <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
                     <button wire:click.prevent='resetInputFields' class="btn btn-label-secondary">Cancel</button>

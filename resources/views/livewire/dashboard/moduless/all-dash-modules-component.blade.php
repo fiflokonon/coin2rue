@@ -44,6 +44,7 @@
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="{{ route('editmodule',['id' => $module->id]) }}"><i class="ti ti-pencil me-1"></i> Edit</a>
                           <a class="dropdown-item" href="{{ route('dlecons',['id' => $module->id]) }}"><i class="ti ti-pencil me-1"></i> Ajouter une leçon</a>
+                          <a class="dropdown-item" href="{{ route('addquiz',['id' => $module->id]) }}"><i class="ti ti-pencil me-1"></i> Ajouter un quiz</a>
                           <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-1"></i> Delete</a>
                         </div>
                       </div>

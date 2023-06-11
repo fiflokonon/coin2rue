@@ -12,6 +12,7 @@ class EditeLeconsComponent extends Component
     public $titre;
     public $image_link, $old_image_link;
     public $contenu;
+    public $ordre;
     public $description;
     public $module_id;
     public $lecon_id;
@@ -22,7 +23,7 @@ class EditeLeconsComponent extends Component
         // Clean errors if were visible before
         $this->resetErrorBag();
         $this->resetValidation();
-        $this->reset(['titre', 'image_link','contenu', 'module_id','description']);
+        $this->reset(['titre', 'image_link','contenu', 'module_id','description','ordre']);
 
     }
 
@@ -35,6 +36,7 @@ class EditeLeconsComponent extends Component
         $this->image_link = $lecon->image_link;
         $this->old_image_link = $lecon->image_link;
         $this->contenu =  $lecon->contenu;
+        $this->ordre =  $lecon->ordre;
         $this->module_id = $lecon->module_id;
         $this->description = $lecon->description;
         $this->user_id = $lecon->user_id;
@@ -45,6 +47,7 @@ class EditeLeconsComponent extends Component
             $this->validate([
                 'titre' =>  'required',
                 'module_id' =>  'required',
+                'ordre' =>  'required',
                 'user_id' =>  'required',
                 // 'image' =>  'required',
                 // 'description' => 'required',
@@ -73,6 +76,7 @@ class EditeLeconsComponent extends Component
 
         $lecon->user_id = $this->user_id;
         $lecon->titre = $this->titre;
+        $lecon->ordre = $this->ordre;
         $lecon->contenu = $this->contenu;
         $lecon->module_id = $this->module_id;
         $lecon->description = $this->description;

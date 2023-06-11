@@ -18,13 +18,14 @@ class AddLeconsComponent extends Component
     public $contenu = "mon texte";
     public $description;
     public $module_id;
+    public $ordre;
 
     public function resetInputFields()
     {
         // Clean errors if were visible before
         $this->resetErrorBag();
         $this->resetValidation();
-        $this->reset(['titre', 'image_link','contenu', 'module_id','description']);
+        $this->reset(['titre', 'image_link','contenu', 'module_id','description','ordre']);
 
     }
 
@@ -38,6 +39,7 @@ class AddLeconsComponent extends Component
                 'titre' =>  'required',
                 // 'image_link' =>  'required',
                 'module_id' =>  'required',
+                // 'module_id' =>  'required',
                 // 'image' =>  'required',
                 // 'description' => 'required',
             ]);

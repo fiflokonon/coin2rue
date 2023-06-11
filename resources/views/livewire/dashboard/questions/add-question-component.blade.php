@@ -22,51 +22,73 @@
             @if (Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
-            <form class="card-body" wire:submit.prevent='saveLecon'>
+            <form class="card-body" wire:submit.prevent='saveQuestion' id="formulaire">
                 <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label" for="">Titre</label>
-                        <input type="text" class="form-control" placeholder="Titre" wire:model="titre" />
-                    </div>
-
-
                     <div class="col-md-6">
-                        <div class="form-password-toggle">
-                            <label class="form-label" for="">Image</label>
-                            <div class="input-group input-group-merge">
-                                <input type="file" class="form-control" placeholder="image" wire:model="image_link" />
-                            </div>
-                        </div>
+                        <label class="form-label" for="">Question</label>
+                        <input type="text" class="form-control" placeholder="Question" wire:model="question" />
                     </div>
-                    <div class="col-md-4">
-                        <label class="form-label" wire:model="ordre" for="">Ordres</label>
+                    <div class="col-md-6">
+                        <label class="form-label" wire:model="quiz_id" for="">quiz_id</label>
                         <select name="" id="" class="form-control">
                             <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            @foreach ($quizz as $quiz)
+                            <option value="{{ $quiz->id }}">{{ $quiz->titre }}</option>
+                            @endforeach
+
                         </select>
                     </div>
+
+
+                    <div class="col-md-12">
+                        <label class="switch switch-lg">
+                            <input type="checkbox" class="switch-input"  wire:model="true_or_false">
+                            <span class="switch-toggle-slider">
+                              <span class="switch-on">
+                                <i class="ti ti-check"></i>
+                              </span>
+                              <span class="switch-off">
+                                <i class="ti ti-x"></i>
+                              </span>
+                            </span>
+                            <span class="switch-label">true_or_false</span>
+                          </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="switch switch-lg">
+                            <input type="checkbox" class="switch-input" wire:model="multiple_answer">
+                            <span class="switch-toggle-slider">
+                              <span class="switch-on">
+                                <i class="ti ti-check"></i>
+                              </span>
+                              <span class="switch-off">
+                                <i class="ti ti-x"></i>
+                              </span>
+                            </span>
+                            <span class="switch-label">multiple_answer</span>
+                          </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="switch switch-lg">
+                            <input type="checkbox" class="switch-input" wire:model="one_answer">
+                            <span class="switch-toggle-slider">
+                              <span class="switch-on">
+                                <i class="ti ti-check"></i>
+                              </span>
+                              <span class="switch-off">
+                                <i class="ti ti-x"></i>
+                              </span>
+                            </span>
+                            <span class="switch-label">one_answer</span>
+                          </label>
+                    </div>
+
                 </div>
                 <hr class="my-4 mx-n4" />
                 <div class="row g-3">
-                    <div class="col-md-12">
-                        <h5>Description</h5>
-                        <div wire:ignore id="full-editor">
-                            <h6>Quill Rich Text Editor</h6>
-                            <p> Cupcake ipsum dolor sit amet. Halvah cheesecake chocolate bar gummi bears cupcake. Pie
-                                macaroon bear claw. Soufflé I love candy canes I love cotton candy I love. </p>
-                        </div>
-                    </div>
+
                     <div class="col-md-12" wire:ignore>
-                        <label for="full-editor"><h5>Contenu de la leçon</h5></label><textarea id="content" name="contenu" ></textarea>
+                        <label for="full-editor"><h5>commentaire</h5></label><textarea id="content" name="content" ></textarea>
                     </div>
 
                 </div>
@@ -111,7 +133,7 @@
         form.addEventListener('submit', function() {
             var content = tinymce.activeEditor.getContent();
             console.log(content);
-        @this.contenu = content;
+        @this.commentaire = content;
             document.querySelector('#content').value = content;
         });
     </script>

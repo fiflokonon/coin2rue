@@ -21,6 +21,10 @@ use App\Http\Livewire\Dashboard\Lecons\EditeLeconsComponent;
 // use App\Http\Livewire\Dashboard\Moduless\AddModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\AllDashModulesComponent;
 use App\Http\Livewire\Dashboard\Moduless\EditeModulesComponent;
+use App\Http\Livewire\Dashboard\Questions\AddQuestionComponent;
+use App\Http\Livewire\Dashboard\Questions\EditeQuestionComponent;
+use App\Http\Livewire\Dashboard\Quiz\AddQuizComponent;
+use App\Http\Livewire\Dashboard\Quiz\EditeQuizComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +60,12 @@ Route::get('/module/{id}', EditeModulesComponent::class)->name('editmodule');
 Route::get('/dlecons/{id}', AllLeconsComponent::class)->name('dlecons');
 Route::get('/add-lecon/{id}', AddLeconsComponent::class)->name('addlecon');
 Route::get('/lecon/{id}', EditeLeconsComponent::class)->name('editlecon');
+
+Route::get('/add-question/{id}', AddQuestionComponent::class)->name('addquestion');
+Route::get('/question/{id}', EditeQuestionComponent::class)->name('editquestion');
+
+Route::get('/add-quiz/{id}', AddQuizComponent::class)->name('addquiz');
+Route::get('/quiz/{id}', EditeQuizComponent::class)->name('editquiz');
 
 
 // Route::middleware([

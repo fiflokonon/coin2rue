@@ -9,11 +9,11 @@
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard/Formations/</span> Ajouter une
-            Lecon</h4>
+            formation</h4>
 
         <!-- Multi Column with Form Separator -->
         <div class="card mb-4">
-            <h5 class="card-header">Ajouter une Lecon</h5>
+
             <div class="p-3">
 
                 <h5 class="card-header d-inline">Ajouter une Leçon</h5>
@@ -22,57 +22,23 @@
             @if (Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message') }}</div>
             @endif
-            <form class="card-body" wire:submit.prevent='saveLecon'>
+            <form class="card-body" wire:submit.prevent='saveQuiz' id="formulaire">
                 <div class="row g-3">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label class="form-label" for="">Titre</label>
                         <input type="text" class="form-control" placeholder="Titre" wire:model="titre" />
                     </div>
-
-
-                    <div class="col-md-4">
-                        <div class="form-password-toggle">
-                            <label class="form-label" for="">Image</label>
-                            <div class="input-group input-group-merge">
-                                <input type="file" class="form-control" placeholder="image" wire:model="image_link" />
-                            </div>
-                        </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="">pass_mark</label>
+                        <input type="number" class="form-control" placeholder="pass_mark" wire:model="pass_mark" />
                     </div>
-                    <div class="col-md-4">
-                        <label class="form-label" wire:model="ordre" for="">Ordres</label>
-                        <select name="" id="" class="form-control">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
+
                 </div>
                 <hr class="my-4 mx-n4" />
                 <div class="row g-3">
-                    <div class="col-md-12">
-                        <h5>Description</h5>
-                        <div wire:ignore id="full-editor">
-                            <h6>Quill Rich Text Editor</h6>
-                            <p> Cupcake ipsum dolor sit amet. Halvah cheesecake chocolate bar gummi bears cupcake. Pie
-                                macaroon bear claw. Soufflé I love candy canes I love cotton candy I love. </p>
-                        </div>
-                    </div>
 
-                    <div class="col-md-12">
-                        <h5>Contenu</h5>
-                        <div wire:ignore id="full-editor">
-                            <h6>Quill Rich Text Editor</h6>
-                            <p> Cupcake ipsum dolor sit amet. Halvah cheesecake chocolate bar gummi bears cupcake. Pie
-                                macaroon bear claw. Soufflé I love candy canes I love cotton candy I love. </p>
-                        </div>
+                    <div class="col-md-12" wire:ignore>
+                        <label for="full-editor"><h5>commentaire</h5></label><textarea id="content" name="content" ></textarea>
                     </div>
 
                 </div>
@@ -102,13 +68,23 @@
     <!-- Page JS -->
     <script src="{{ asset('assets/dash/assets/js/form-layouts.js') }}"></script>
 
+    <script src="https://cdn.tiny.cloud/1/ham41k2pezublgag1vvdmdsyeehbd095atam2gfndyjoucg0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        // var sd_data = $('#short_description').val();
-        $("#full-editor").on('change', function() {
-            // alert('Please select');
-            @this.description = $('#full-editor').val();
-            // @this.set('short_description', sd_data);
-
+        tinymce.init({
+            selector: '#content',
+            height: 300,
+            plugins: 'autolink lists link image charmap print preview',
+            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+            menubar: false,
+            branding: false
+        });
+        // Récupérer le contenu de TinyMCE lorsque vous en avez besoin
+        var form = document.querySelector('#formulaire');
+        form.addEventListener('submit', function() {
+            var content = tinymce.activeEditor.getContent();
+            console.log(content);
+        @this.description = content;
+            document.querySelector('#content').value = content;
         });
     </script>
 @endsection
